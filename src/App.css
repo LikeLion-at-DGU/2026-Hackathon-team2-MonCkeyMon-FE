@@ -1,0 +1,25 @@
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.section {
+  margin-top: 40px;
+}
+
+.section__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+}
+
+.section__lead {
+  margin-top: 14px;
+}
+
+.section__body {
+  margin-top: 10px;
+  color: var(--ink-muted);
+}

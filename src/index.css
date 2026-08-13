@@ -1,0 +1,42 @@
+:root {
+  --bg: #fbfaf7;
+  --line: #d8d5cc;
+  --ink: #22201c;
+  --ink-muted: #6d6a62;
+  --accent: #8a3b16;
+
+  --max-width: 680px;
+
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  line-height: 1.7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: var(--accent);
+}
