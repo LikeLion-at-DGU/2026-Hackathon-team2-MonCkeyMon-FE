@@ -1,5 +1,3 @@
-import PageHeader from '../components/PageHeader';
-
 function NotFoundPage() {
   return (
     <main className="page">
