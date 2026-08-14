@@ -8,6 +8,7 @@ export const theme = {
         lightSand: "#E5DBCE",    // MCM-Light-Sand
         white: "#FFFFFF",
         cream: "#FAF8F6",
+        black: "#000000",
     },
 
     fonts: {
