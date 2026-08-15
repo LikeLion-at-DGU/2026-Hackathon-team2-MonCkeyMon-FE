@@ -10,7 +10,7 @@ const STEPS = [
     {
         id: 1,
         title: "사진 촬영",
-        text: "AI 영상이 잘 제작될 수 있게 \n정면, 전신으로 서 촬영합니다.",
+        text: "AI 사진이 잘 제작될 수 있게 \n정면, 전신으로 서 촬영합니다.",
         image: step1Image,
     },
 
