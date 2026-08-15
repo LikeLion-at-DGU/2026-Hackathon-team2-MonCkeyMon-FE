@@ -5,6 +5,7 @@ import CameraPage from "../pages/CameraPage";
 import PhotoPage from "../pages/PhotoPage";
 import ThemePage from "../pages/ThemePage";
 import NotFoundPage from "../pages/NotFoundPage";
+import IntroPage from "../pages/IntroPage";
 
 function Router() {
     return (
@@ -15,6 +16,7 @@ function Router() {
             <Route path="/photo" element={<PhotoPage />} />
             <Route path="/theme" element={<ThemePage />} />
             <Route path="*" element={<NotFoundPage />} />
+            <Route path="/intro" element={<IntroPage />} />
         </Routes>
     );
 }

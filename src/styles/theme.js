@@ -9,6 +9,7 @@ export const theme = {
         white: "#FFFFFF",
         cream: "#FAF8F6",
         black: "#000000",
+        cardBg: "#F5F1EE",
     },
 
     fonts: {
