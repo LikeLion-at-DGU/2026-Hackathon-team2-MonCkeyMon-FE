@@ -92,5 +92,5 @@ export const Arrow = styled.span`
 
 export const Logo = styled.img`
     margin-top: auto;
-    margin-bottom: 40px;
+    margin-bottom: 22px;
 `;
