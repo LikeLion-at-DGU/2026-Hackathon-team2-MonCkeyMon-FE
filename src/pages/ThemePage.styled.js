@@ -169,4 +169,9 @@ export const SelectBtn = styled.button`
     font-family: ${({ theme }) => theme.fonts.body};
     font-size: 30px;
     font-weight: 500;
+
+    &:active{
+        transform: translateX(-50%), scale(0.94);
+        background: #444;
+    }
 `;

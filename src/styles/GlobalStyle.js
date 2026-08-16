@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import BatangRegular from "../assets/fonts/Batang_Regular.woff";
 import BatangBold from "../assets/fonts/Batang_Bold.woff";
+import AbhayaLibre from "../assets/fonts/AbhayaLibre-ExtraBold.ttf";
 
 export const GlobalStyle = createGlobalStyle`
     @font-face {
@@ -15,6 +16,13 @@ export const GlobalStyle = createGlobalStyle`
     src: url(${BatangBold}) format("woff");
     font-weight: 700;
     font-display: swap;
+    }
+
+    @font-face {
+        font-family: "Abhaya Libre";
+        src: url(${AbhayaLibre}) format("truetype");
+        font-weight: 800;
+        font-display: swap;
     }
 
   * {
