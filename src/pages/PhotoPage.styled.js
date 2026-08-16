@@ -55,6 +55,11 @@ export const ReBtn = styled.button`
     font-family: ${({ theme }) => theme.fonts.body};
     font-weight: 500;
     font-size: 30px;
+    transition: all 0.2s;
+
+    &:active{
+        transform: scale(0.94);
+    }
 `;
 
 export const NextBtn = styled.button`
@@ -69,4 +74,10 @@ export const NextBtn = styled.button`
     text-align: center;
     font-weight: 500;
     font-size: 30px;
+    transition: all 0.2s;
+
+    &:active{
+        transform: scale(0.94);
+        background: #444;
+    }
 `;

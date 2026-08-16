@@ -7,6 +7,10 @@ import ThemePage from "../pages/ThemePage";
 import NotFoundPage from "../pages/NotFoundPage";
 import IntroPage from "../pages/IntroPage";
 
+// 여기부터 관리자용
+import CoverPage from "../pages/admin/CoverPage";
+import DailyPage from "../pages/admin/DailyPage";
+
 function Router() {
     return (
         <Routes>
@@ -17,6 +21,10 @@ function Router() {
             <Route path="/theme" element={<ThemePage />} />
             <Route path="*" element={<NotFoundPage />} />
             <Route path="/intro" element={<IntroPage />} />
+
+// 여기부터 관리자용
+            <Route path="/admin" element={<CoverPage />} />
+            <Route path="/admin/daily" element={<DailyPage />} />
         </Routes>
     );
 }
