@@ -15,11 +15,14 @@ export const theme = {
     fonts: {
         body: `"Pretendard Variable", Pretendard, sans-serif`,
         display: `"GyeonggiBatang", serif`,
+        admin: `"Abhaya Libre", serif`,
     },
 
 
     size: {
         frameWidth: "820px",
         frameHeight: "1180px",
+        adminWidth: "1180px",
+        adminHeight: "820px",
     },
 };

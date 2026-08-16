@@ -16,8 +16,8 @@ export const Box = styled.div`
     flex: 1;
     width: 740px;
     margin-top: 24px;
-    padding: 32px;
-    border-radius: 20px 20px 0 0;
+    margin-bottom: 24px;
+    border-radius: 20px;
     background: ${({ theme }) => theme.colors.cream};
     overflow: hidden;
 `;
@@ -27,17 +27,18 @@ export const Title1 = styled.h2`
     font-family: ${({ theme }) => theme.fonts.body};
     font-size: 28px;
     font-weight: 500;
+    margin: 32px 32px 0;
 `;
 
 export const Top = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
-    margin-top: 16px;
+    margin: 16px 32px 0;
 `;
 
 export const Title2 = styled.h2`
-    margin-top: 22px;
+    margin: 22px 32px 0;
     color: ${({ theme }) => theme.colors.black};
     font-family: ${({ theme }) => theme.fonts.body};
     font-size: 28px;
@@ -48,7 +49,7 @@ export const TabBar = styled.div`
     display: flex;
     align-items: center;
     gap: 24px;
-    margin-top: 16px;
+    margin: 16px 32px 0;
 `;
 
 export const Tab = styled.button`
@@ -77,8 +78,8 @@ export const Theme = styled.div`
     gap: 16px;
     margin-top: 20px;
     flex: 1;
+    padding: 0 32px 150px;
     overflow-y: auto;
-    padding-right: 8px;
 
     &::-webkit-scrollbar {
         width: 8px;
@@ -88,7 +89,7 @@ export const Theme = styled.div`
         border-radius: 4px;
     }
     &::-webkit-scrollbar-track {
-        background: transparent;
+        margin: 15px 0;
     }
 `;
 
@@ -96,11 +97,12 @@ export const Card = styled.button`
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
     padding: 8px;
     border-radius: 12px;
     border: 2px solid ${({ $selected, theme }) =>
         $selected ? theme.colors.camelBrown : "transparent"};
-    background: ${({ theme }) => theme.colors.white};
+    background: ${({ theme }) => theme.colors.cardBg};
     text-align: left;
     box-shadow: 1px 1px 4px 0 rgba(97, 85, 74, 0.40);
     width: 210px;
@@ -114,7 +116,7 @@ export const CardBox = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
+    margin-top: 8px;
     overflow: hidden;
 `;
 
@@ -128,13 +130,14 @@ export const CheckIcon = styled.img`
     position: absolute;
     top: 8px;
     right: 8px;
-    width: 28px;
-    height: 28px;
+    width: 23px;
+    height: 23px;
 `;
 
 export const CardName = styled.p`
     width: 100%;
-    margin-top: 8px;
+    margin-top: 7px;
+    margin-left: 12px;
     color: ${({ theme }) => theme.colors.lightBrown};
     font-family: ${({ theme }) => theme.fonts.body};
     font-size: 16px;
@@ -148,6 +151,9 @@ export const CardTags = styled.p`
     font-size: 12px;
     font-weight: 400;
     margin-top: 6px;
+    text-align: left;
+    width: 100%;
+    margin-left: 12px;
 `;
 
 export const SelectBtn = styled.button`
@@ -163,4 +169,9 @@ export const SelectBtn = styled.button`
     font-family: ${({ theme }) => theme.fonts.body};
     font-size: 30px;
     font-weight: 500;
+
+    &:active{
+        transform: translateX(-50%), scale(0.94);
+        background: #444;
+    }
 `;

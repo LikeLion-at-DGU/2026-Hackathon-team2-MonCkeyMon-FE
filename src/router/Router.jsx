@@ -8,6 +8,10 @@ import NotFoundPage from "../pages/NotFoundPage";
 import IntroPage from "../pages/IntroPage";
 import ProductPage from "../pages/ProductPage";
 
+// 여기부터 관리자용
+import CoverPage from "../pages/admin/CoverPage";
+import DailyPage from "../pages/admin/DailyPage";
+
 function Router() {
     return (
         <Routes>
@@ -19,6 +23,10 @@ function Router() {
             <Route path="*" element={<NotFoundPage />} />
             <Route path="/intro" element={<IntroPage />} />
             <Route path="/product" element={<ProductPage />} />
+
+
+            <Route path="/admin" element={<CoverPage />} />
+            <Route path="/admin/daily" element={<DailyPage />} />
         </Routes>
     );
 }

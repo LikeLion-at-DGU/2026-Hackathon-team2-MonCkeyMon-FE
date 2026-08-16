@@ -29,9 +29,9 @@ function ThemePage() {
             onClick={() => setSelectedId(background.id)}
         >
             <S.CardBox>
-                <S.CardImg src={background.image} alt={background.name} />
-                {selectedId === background.id && <S.CheckIcon src={checkIcon} />}
+                <S.CardImg src={background.image} />
             </S.CardBox>
+            {selectedId === background.id && <S.CheckIcon src={checkIcon} />}
             <S.CardName>{background.name}</S.CardName>
             <S.CardTags>{background.tags.map((t) => `#${t}`).join(" ")}</S.CardTags>
         </S.Card>

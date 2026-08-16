@@ -54,6 +54,9 @@ export const ServiceLink = styled.button`
     font-family: ${({ theme }) => theme.fonts.body};
     font-size: 20px;
     font-weight: 400;
+    &:active{
+        transform: scale(0.94);
+    }
 `;
 
 export const StartButton = styled.button`
@@ -74,6 +77,10 @@ export const StartButton = styled.button`
     letter-spacing: 1.08px;
     font-weight: 400;
     padding: 0 35px;
+
+    &:active{
+        transform: scale(0.94);
+    }
 `;
 
 export const Stamp = styled.img`

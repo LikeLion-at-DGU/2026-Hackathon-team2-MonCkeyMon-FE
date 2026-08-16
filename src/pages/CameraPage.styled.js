@@ -84,7 +84,11 @@ export const CamButton = styled.button`
     color: ${({ theme }) => theme.colors.white};
     font-family: ${({ theme }) => theme.fonts.body};
     font-size: 35px;
-    font-weight: 500;
+
+    &:active{
+        transform: scale(0.94);
+        background: #444;
+    }
 `;
 
 export const CamIcon = styled.img`
