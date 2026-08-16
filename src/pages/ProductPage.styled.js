@@ -72,28 +72,3 @@ export const ModalContent = styled.div`
     border-radius: 20px 20px 0px 0px;
 `;
 
-export const StartButton = styled.button`
-    display: flex;
-    width: 540px;
-    height: 120px;
-    padding: 30px 141px 30px 142px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    background-color: ${({ theme }) => theme.colors.camelBrown};
-    border-radius: 20px;
-    color: #FFF;
-    text-align: center;
-    font-family: Pretendard;
-    font-size: 35px;
-    line-height: normal;
-
-    &:active{
-        transform: scale(1.03);
-    }
-`;
-
-export const VideoImg = styled.img`
-    width: 60px;
-    height: 60px;
-`;
