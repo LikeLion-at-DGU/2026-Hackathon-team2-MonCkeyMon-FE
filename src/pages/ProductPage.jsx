@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useChatStore } from "../store/chatStore";
 import * as S from "./ProductPage.styled";
 import Chat from "../components/Chat/Chat";
+import PageHeader from "../components/PageHeader/PageHeader";
 
 function ProductPage() {
     const { visibleMessages, advanceTo, clampTo } = useChatStore();
@@ -20,6 +21,7 @@ function ProductPage() {
 
     return (
         <S.Wrapper>
+            <PageHeader />
             <S.Body>
                 <Chat />
             </S.Body>
