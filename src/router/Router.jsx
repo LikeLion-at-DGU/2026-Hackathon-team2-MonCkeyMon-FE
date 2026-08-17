@@ -6,6 +6,7 @@ import PhotoPage from "../pages/PhotoPage";
 import ThemePage from "../pages/ThemePage";
 import NotFoundPage from "../pages/NotFoundPage";
 import IntroPage from "../pages/IntroPage";
+import ProductPage from "../pages/ProductPage";
 
 // 여기부터 관리자용
 import CoverPage from "../pages/admin/CoverPage";
@@ -21,8 +22,9 @@ function Router() {
             <Route path="/theme" element={<ThemePage />} />
             <Route path="*" element={<NotFoundPage />} />
             <Route path="/intro" element={<IntroPage />} />
+            <Route path="/product" element={<ProductPage />} />
 
-// 여기부터 관리자용
+
             <Route path="/admin" element={<CoverPage />} />
             <Route path="/admin/daily" element={<DailyPage />} />
         </Routes>

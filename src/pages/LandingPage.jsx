@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useChatStore } from "../store/chatStore";
 import titleImage from "../assets/images/Title.png";
 import diamondIcon from "../assets/images/Diamond.svg";
 import stampImage from "../assets/images/Stamp.png";
@@ -7,6 +8,12 @@ import * as S from "./LandingPage.styled";
 
 function LandingPage() {
   const navigate = useNavigate();
+  const resetMessages = useChatStore((state) => state.resetMessages);
+
+  const handleStart = () => {
+    resetMessages();
+    navigate("/intro");
+  };
 
   return (
     <S.Wrapper>
@@ -28,7 +35,7 @@ function LandingPage() {
         서비스 설명 {">"}
       </S.ServiceLink>
 
-      <S.StartButton type="button" onClick={() => navigate("/intro")}>
+      <S.StartButton type="button" onClick={handleStart}>
         <S.Stamp src={stampImage} />
         START
         <S.Arrow>→</S.Arrow>
