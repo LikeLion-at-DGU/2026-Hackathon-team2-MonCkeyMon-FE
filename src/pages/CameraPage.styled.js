@@ -10,6 +10,21 @@ export const Wrapper = styled.div`
     background: ${({ theme }) => theme.colors.black};
 `;
 
+export const Guide = styled.p`
+    width: 100%;
+    padding: 16px 0;
+    text-align: center;
+    color: ${({ theme }) => theme.colors.cream};
+    font-family: ${({ theme }) => theme.fonts.body};
+    font-size: 24px;
+    font-weight: 500;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    z-index: 5;
+`;
+
 export const CamArea = styled.div`
     position: relative;
     flex: 1;
@@ -87,7 +102,7 @@ export const CamButton = styled.button`
 
     &:active{
         transform: scale(0.94);
-        background: #444;
+        background: ${({ theme }) => theme.colors.active};
     }
 `;
 

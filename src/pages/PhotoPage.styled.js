@@ -78,6 +78,6 @@ export const NextBtn = styled.button`
 
     &:active{
         transform: scale(0.94);
-        background: #444;
+        background: ${({ theme }) => theme.colors.active};
     }
 `;

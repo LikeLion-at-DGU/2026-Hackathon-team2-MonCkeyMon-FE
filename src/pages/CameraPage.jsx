@@ -38,6 +38,10 @@ function CameraPage() {
             <S.CamArea>
                 <S.Video ref={videoRef} autoPlay playsInline muted />
 
+                {!isRunning && (
+                    <S.Guide>• 지금 찍는 사진 그대로 합성됩니다. 사진을 예쁜 포즈로 남겨주세요!</S.Guide>
+                )}
+
                 {isRunning && (
                     <S.Countdown>
                         <S.Count>{count}</S.Count>
