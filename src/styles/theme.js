@@ -10,6 +10,8 @@ export const theme = {
         cream: "#FAF8F6",
         black: "#000000",
         cardBg: "#F5F1EE",
+        active: "#444",
+        orangedark: "#392515",
     },
 
     fonts: {

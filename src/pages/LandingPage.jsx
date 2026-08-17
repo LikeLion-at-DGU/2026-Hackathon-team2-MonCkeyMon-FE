@@ -6,12 +6,16 @@ import stampImage from "../assets/images/Stamp.png";
 import logoImage from "../assets/images/Logo.png";
 import * as S from "./LandingPage.styled";
 
+import { useExperienceStore } from "../store/experienceStore";
+import { createExperience } from "../apis/experienceApi";
+
 function LandingPage() {
   const navigate = useNavigate();
-  const resetMessages = useChatStore((state) => state.resetMessages);
+  const setSessionId = useExperienceStore((state) => state.setSessionId);
 
-  const handleStart = () => {
-    resetMessages();
+  const handleStart = async () => {
+    const res = await createExperience();
+    setSessionId(res.data.id);
     navigate("/intro");
   };
 

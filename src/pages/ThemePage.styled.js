@@ -16,8 +16,7 @@ export const Box = styled.div`
     flex: 1;
     width: 740px;
     margin-top: 24px;
-    margin-bottom: 24px;
-    border-radius: 20px;
+    border-radius: 20px 20px 0 0;
     background: ${({ theme }) => theme.colors.cream};
     overflow: hidden;
 `;
@@ -172,6 +171,6 @@ export const SelectBtn = styled.button`
 
     &:active{
         transform: translateX(-50%), scale(0.94);
-        background: #444;
+        background: ${({ theme }) => theme.colors.active};
     }
 `;
