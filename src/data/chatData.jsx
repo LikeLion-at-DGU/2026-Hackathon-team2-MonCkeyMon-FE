@@ -37,9 +37,13 @@ export const chatMessages = [
         ),
     },
     {
+        isMine: true,
+        withProduct: true,
+        startsNewScreen: true,
+        withLoading: true,
         content: (
             <>
-                AI 사진에 간단한 가이드를 추가할 수 있습니다.
+                제품을 선택했습니다.
             </>
         ),
     },

@@ -1,10 +1,22 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const ChatList = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    flex: 1;
     gap: 30px;
+`;
+
+const riseIn = keyframes`
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 `;
 
 export const ChatMessage = styled.div`
@@ -13,11 +25,38 @@ export const ChatMessage = styled.div`
     align-items: flex-start;
     gap: 10px;
 
+    animation: ${riseIn} 0.45s ease-out;
+
     ${({ $mine }) =>
         $mine &&
         `
         justify-content: flex-end;
     `}
+`;
+
+export const Loading = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 14px;
+    margin-top: auto;
+
+    align-items: center;
+`;
+
+export const LoadingIcon = styled.img`
+    width: 38px;
+    height: 48px;
+
+    flex-shrink: 0;
+    aspect-ratio: 38/48;
+`;
+
+export const LoadingText = styled.span`
+    font-size: 20px;
+    color: ${({ theme }) => theme.colors.camelBrown};
+    font-family: ${({ theme }) => theme.fonts.body};
+    font-weight: 500;
 `;
 
 export const Profile = styled.div`
@@ -61,6 +100,12 @@ export const Nickname = styled.span`
     font-size: 14px;
     color: ${({ theme }) => theme.colors.brown};
     font-family: ${({ theme }) => theme.fonts.body};
+`;
+
+export const BubbleProduct = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-top: 14px;
 `;
 
 export const Bubble = styled.div`

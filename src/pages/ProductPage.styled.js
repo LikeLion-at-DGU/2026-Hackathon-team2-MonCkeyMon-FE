@@ -18,6 +18,7 @@ export const Wrapper = styled.div`
         background-repeat: no-repeat;
         background-position: center;
         opacity: 0.4;
+        pointer-events: none;
     }
 `;
 
@@ -216,7 +217,6 @@ export const ProductList = styled.div`
     min-height: 0;
     overflow-y: auto;
 
-    /* 선택하기 버튼이 목록 위에 떠 있어, 마지막 줄이 가려지지 않도록 여백 확보 */
     padding-bottom: ${({ $hasSelectBtn }) => ($hasSelectBtn ? "116px" : "0")};
 
     scrollbar-width: none;

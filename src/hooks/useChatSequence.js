@@ -4,7 +4,7 @@ import { useChatStore } from "../store/chatStore";
 const MESSAGE_DELAY = 3000;
 const MODAL_DELAY = 1000;
 
-export const useChatSequence = ({ clampMin, clampMax, end }) => {
+export const useChatSequence = ({ clampMin, clampMax, end, modalAt = end }) => {
     const { visibleMessages, advanceTo, clampTo } = useChatStore();
     const [showModal, setShowModal] = useState(false);
 
@@ -21,12 +21,12 @@ export const useChatSequence = ({ clampMin, clampMax, end }) => {
     }, [visibleMessages, advanceTo, end]);
 
     useEffect(() => {
-        if (visibleMessages !== end) return;
+        if (visibleMessages !== modalAt) return;
         const timer = setTimeout(() => {
             setShowModal(true);
         }, MODAL_DELAY);
         return () => clearTimeout(timer);
-    }, [visibleMessages, end]);
+    }, [visibleMessages, modalAt]);
 
     return { visibleMessages, showModal, setShowModal, advanceTo };
 };
