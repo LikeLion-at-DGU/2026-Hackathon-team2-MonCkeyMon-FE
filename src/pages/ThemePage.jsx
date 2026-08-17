@@ -1,22 +1,53 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useExperienceStore } from "../store/experienceStore"
-import { demoTheme } from "../data/demo_theme";
 import PageHeader from "../components/PageHeader/PageHeader";
 import checkIcon from "../assets/images/Check.svg";
 import * as S from "./ThemePage.styled";
 
+import { getBackgrounds } from "../apis/backgroundApi";
+import { selectBackground, uploadPhoto } from "../apis/experienceApi";
+
+const dataUrlToFile = (dataUrl, fileName) => {
+    const [header, base64] = dataUrl.split(",");
+    const mimeType = header.match(/:(.*?);/)[1];
+    const binary = atob(base64);
+
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) {
+        bytes[i] = binary.charCodeAt(i);
+    }
+
+    return new File([bytes], fileName, { type: mimeType });
+};
+
 function ThemePage() {
     const navigate = useNavigate();
+    const sessionId = useExperienceStore((state) => state.sessionId);
     const setBackgroundId = useExperienceStore((state) => state.setBackgroundId);
+    const photo = useExperienceStore((state) => state.photo); 
 
     const [activeTab, setActiveTab] = useState("나라 별");
     const [selectedId, setSelectedId] = useState(null);
-
-    const { top3, backgrounds } = demoTheme;
+    const [top3, setTop3] = useState([]);
+    const [backgrounds, setBackgrounds] = useState([]);
     const filtered = backgrounds.filter((background) => background.type === activeTab);
 
-    const handleSelect = () => {
+    useEffect(() => {
+        getBackgrounds().then((res) => {
+            setTop3(res.data.top3);
+            setBackgrounds(res.data.backgrounds);
+        });
+    }, []);
+
+    const handleSelect = async () => {
+        await selectBackground(sessionId, selectedId);
+
+        const photoFile = dataUrlToFile(photo, "person.png");
+        const formData = new FormData();
+        formData.append("person_image", photoFile);
+
+        await uploadPhoto(sessionId, formData);
         setBackgroundId(selectedId);
         navigate("/product");
     };
