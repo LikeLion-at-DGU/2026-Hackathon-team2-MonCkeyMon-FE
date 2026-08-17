@@ -1,0 +1,70 @@
+import { useEffect, useState } from "react";
+import AdminHeader from "../../components/admin/AdminHeader";
+import Top5 from "../../components/admin/Top5";
+import ProductData from "../../components/admin/ProductData";
+import { getProductSession, getCategoryTop5, getChooseCountTop5, getVisitorCount, getDailyVisitorCount, } from "../../apis/adminApi";
+import Session from "../../components/admin/Session";
+import * as S from "./DailyPage.styled";
+
+function TotalPage() {
+    const [products, setProducts] = useState([]);
+    const [categoryTop5, setCategoryTop5] = useState([]);
+    const [backgroundTop5, setBackgroundTop5] = useState([]);
+    const [visitorCount, setVisitorCount] = useState(0);
+    const [dailyCounts, setDailyCounts] = useState([]);
+
+    useEffect(() => {
+        getProductSession().then((res) => setProducts(res.data));
+        getCategoryTop5().then((res) => setCategoryTop5(res.data));
+        getChooseCountTop5().then((res) => setBackgroundTop5(res.data.backgrounds));
+        getVisitorCount().then((res) => setVisitorCount(res.data.total_visitor_count));
+        getDailyVisitorCount().then((res) => setDailyCounts(res.data));
+    }, []);
+
+    return (
+        <AdminHeader>
+            <S.CardRow>
+                <S.MiniBox>
+                    <S.MiniTitle>총 세션 수</S.MiniTitle>
+                    <S.MiniCount>{visitorCount}</S.MiniCount>
+                </S.MiniBox>
+
+                <S.MiniBox>
+                    <S.MiniTitle>총 링크 받기 수</S.MiniTitle>
+                    <S.MiniCount>0</S.MiniCount>
+                </S.MiniBox>
+
+                <S.MiniBox>
+                    <S.MiniTitle>총 링크 접속 수</S.MiniTitle>
+                    <S.MiniCount>0</S.MiniCount>
+                </S.MiniBox>
+            </S.CardRow>
+
+            <S.ProductTable>
+                <ProductData note="팝업 시작일부터 저장된 데이터를 기반으로 함" products={products} />
+            </S.ProductTable>
+
+            <S.RankRow>
+                <Top5
+                    title="카테고리 TOP 5"
+                    items={categoryTop5.map((item) => ({
+                        name: item.category,
+                        count: item.session_count,
+                    }))}
+                />
+                <Top5
+                    title="배경 선택 TOP 5"
+                    items={backgroundTop5.map((item) => ({
+                        name: item.name,
+                        count: item.choose_count,
+                    }))}
+                />
+            </S.RankRow>
+
+            <S.SessionGraph>
+                <Session dailyCounts={dailyCounts} />
+            </S.SessionGraph>
+        </AdminHeader>
+    );
+}
+export default TotalPage;
