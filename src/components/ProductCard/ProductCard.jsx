@@ -4,9 +4,10 @@ import * as S from "./ProductCard.styled";
 function ProductCard({ product, selected, onSelect }) {
     return (
         <S.Card
-            type="button"
+            as={onSelect ? "button" : "div"}
+            type={onSelect ? "button" : undefined}
             $selected={selected}
-            onClick={() => onSelect(product.id)}
+            onClick={onSelect ? () => onSelect(product.id) : undefined}
         >
             <S.CardBox>
                 <S.CardImg src={product.image} alt={product.name} />

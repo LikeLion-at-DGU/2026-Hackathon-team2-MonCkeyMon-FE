@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const ChatList = styled.div`
     display: flex;
@@ -7,11 +7,24 @@ export const ChatList = styled.div`
     gap: 30px;
 `;
 
+const riseIn = keyframes`
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+`;
+
 export const ChatMessage = styled.div`
     display: flex;
     width: 100%;
     align-items: flex-start;
     gap: 10px;
+
+    animation: ${riseIn} 0.45s ease-out;
 
     ${({ $mine }) =>
         $mine &&
@@ -61,6 +74,12 @@ export const Nickname = styled.span`
     font-size: 14px;
     color: ${({ theme }) => theme.colors.brown};
     font-family: ${({ theme }) => theme.fonts.body};
+`;
+
+export const BubbleProduct = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-top: 14px;
 `;
 
 export const Bubble = styled.div`

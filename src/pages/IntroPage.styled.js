@@ -18,6 +18,7 @@ export const Wrapper = styled.div`
         background-repeat: no-repeat;
         background-position: center;
         opacity: 0.4;
+        pointer-events: none;
     }
 `;
 

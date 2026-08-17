@@ -9,12 +9,19 @@ import PageHeader from "../components/PageHeader/PageHeader";
 import ProductCard from "../components/ProductCard/ProductCard";
 import upArrow from "../assets/images/UpArrow.svg"
 
+const CHAT_ON_ENTER = 3;     
+const CHAT_BEFORE_SELECT = 5;
+const CHAT_AFTER_SELECT = 7; 
+
 function ProductPage() {
     const setProductId = useExperienceStore((state) => state.setProductId);
+
+    const [chatEnd, setChatEnd] = useState(CHAT_BEFORE_SELECT);
     const { showModal, setShowModal, advanceTo } = useChatSequence({
-        clampMin: 3,
-        clampMax: 3,
-        end: 5,
+        clampMin: CHAT_ON_ENTER,
+        clampMax: CHAT_ON_ENTER,
+        end: chatEnd,
+        modalAt: CHAT_BEFORE_SELECT,
     });
 
     const [expanded, setExpanded] = useState(false);
@@ -27,7 +34,8 @@ function ProductPage() {
         setProductId(selectedId);
         setExpanded(false);
         setShowModal(false);
-        advanceTo(6);
+        setChatEnd(CHAT_AFTER_SELECT);
+        advanceTo(CHAT_BEFORE_SELECT + 1); // "제품을 선택했습니다"는 즉시, 나머지는 3초 간격
     };
 
     const renderCard = (product) => (
