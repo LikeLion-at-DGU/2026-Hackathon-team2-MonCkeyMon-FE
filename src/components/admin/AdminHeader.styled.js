@@ -13,6 +13,7 @@ export const Header = styled.header`
     align-items: center;
     justify-content: space-between;
     height: 89px;
+    flex-shrink: 0;
     padding: 0 24px 0 28px;
     border-bottom: 1px solid ${({ theme }) => theme.colors.greySand};
 `;
@@ -51,6 +52,7 @@ export const DateTab = styled.button`
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
+    height: 52px;
     border-radius: 10px;
     background: ${({ theme }) => theme.colors.lightSand};
     color: ${({ theme }) => theme.colors.brown};
@@ -92,6 +94,7 @@ export const Option = styled.button`
 export const Middle = styled.div`
     display: flex;
     flex: 1;
+    min-height: 0;
 `;
 
 export const Body = styled.nav`
@@ -122,4 +125,16 @@ export const Content = styled.main`
     flex: 1;
     padding: 18px 12px 24px;
     overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 3px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: ${({ theme }) => theme.colors.greySand};
+        border-radius: 2px;
+    }
+
+    &::-webkit-scrollbar-track {
+        margin: 50px 0;
+    }
 `;
