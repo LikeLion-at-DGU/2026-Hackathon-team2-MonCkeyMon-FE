@@ -11,6 +11,7 @@ import ProductPage from "../pages/ProductPage";
 // 여기부터 관리자용
 import CoverPage from "../pages/admin/CoverPage";
 import DailyPage from "../pages/admin/DailyPage";
+import TotalPage from "../pages/admin/TotalPage";
 
 function Router() {
     return (
@@ -27,6 +28,7 @@ function Router() {
 
             <Route path="/admin" element={<CoverPage />} />
             <Route path="/admin/daily" element={<DailyPage />} />
+            <Route path="/admin/total" element={<TotalPage />} />
         </Routes>
     );
 }
