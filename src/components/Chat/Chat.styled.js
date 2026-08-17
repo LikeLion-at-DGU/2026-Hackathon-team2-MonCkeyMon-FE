@@ -4,6 +4,7 @@ export const ChatList = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    flex: 1;
     gap: 30px;
 `;
 
@@ -31,6 +32,31 @@ export const ChatMessage = styled.div`
         `
         justify-content: flex-end;
     `}
+`;
+
+export const Loading = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 14px;
+    margin-top: auto;
+
+    align-items: center;
+`;
+
+export const LoadingIcon = styled.img`
+    width: 38px;
+    height: 48px;
+
+    flex-shrink: 0;
+    aspect-ratio: 38/48;
+`;
+
+export const LoadingText = styled.span`
+    font-size: 20px;
+    color: ${({ theme }) => theme.colors.camelBrown};
+    font-family: ${({ theme }) => theme.fonts.body};
+    font-weight: 500;
 `;
 
 export const Profile = styled.div`

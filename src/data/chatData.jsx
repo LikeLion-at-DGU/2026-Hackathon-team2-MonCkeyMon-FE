@@ -40,6 +40,7 @@ export const chatMessages = [
         isMine: true,
         withProduct: true,
         startsNewScreen: true,
+        withLoading: true,
         content: (
             <>
                 제품을 선택했습니다.
