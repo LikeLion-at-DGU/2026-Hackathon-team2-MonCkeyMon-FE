@@ -59,17 +59,14 @@ function StockPage() {
                         </S.Middle>
 
                         <S.Middle2>
-                            {products.map((product) => {
-                                console.log(product.id, product.name);
-                                return (
-                                    <S.Detail key={product.id}>
-                                        <S.Name2>{product.name}</S.Name2>
-                                        <S.Color>{product.color}</S.Color>
-                                        <S.Size>{product.size}</S.Size>
-                                        <S.Stock2>{Stock[product.id] ?? "-"}</S.Stock2>
-                                    </S.Detail>
-                                );
-                            })}
+                            {products.map((product) => (
+                                <S.Detail key={product.id}>
+                                    <S.Name2>{product.name}</S.Name2>
+                                    <S.Color>{product.color}</S.Color>
+                                    <S.Size>{product.size}</S.Size>
+                                    <S.Stock2>{Stock[product.id] ?? "-"}</S.Stock2>
+                                </S.Detail>
+                            ))}
                         </S.Middle2>
                     </>
                 )}
