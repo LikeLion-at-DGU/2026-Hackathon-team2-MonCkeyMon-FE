@@ -15,6 +15,8 @@ import TotalPage from "../pages/admin/TotalPage";
 import InfoPage from "../pages/admin/InfoPage";
 import StockPage from "../pages/admin/StockPage";
 
+import ResultPage from "../pages/ResultPage";
+
 function Router() {
     return (
         <Routes>
@@ -27,6 +29,7 @@ function Router() {
             <Route path="/intro" element={<IntroPage />} />
             <Route path="/product" element={<ProductPage />} />
 
+            <Route path="/Result" element={<ResultPage />} />
 
             <Route path="/admin" element={<CoverPage />} />
             <Route path="/admin/daily" element={<DailyPage />} />
