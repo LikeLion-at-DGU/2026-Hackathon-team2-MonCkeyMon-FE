@@ -12,6 +12,7 @@ import ProductPage from "../pages/ProductPage";
 import CoverPage from "../pages/admin/CoverPage";
 import DailyPage from "../pages/admin/DailyPage";
 import TotalPage from "../pages/admin/TotalPage";
+import InfoPage from "../pages/admin/InfoPage";
 
 function Router() {
     return (
@@ -29,6 +30,7 @@ function Router() {
             <Route path="/admin" element={<CoverPage />} />
             <Route path="/admin/daily" element={<DailyPage />} />
             <Route path="/admin/total" element={<TotalPage />} />
+            <Route path="/admin/info" element={<InfoPage />} />
         </Routes>
     );
 }
