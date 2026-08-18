@@ -9,7 +9,7 @@ import PageHeader from "../components/PageHeader/PageHeader";
 import ProductCard from "../components/ProductCard/ProductCard";
 import upArrow from "../assets/images/UpArrow.svg"
 import VideoPreview from "../assets/videos/DemoVideo.mp4"
-
+import Search from "../assets/images/Search.png"
 const CHAT_ON_ENTER = 3;     
 const CHAT_BEFORE_SELECT = 5;
 const CHAT_AFTER_SELECT = 7; 
@@ -135,7 +135,28 @@ function ProductPage() {
                     <S.ResultSubTitle>실제 여행에서, 사진 속 아름다운 모습을 실현해보세요!</S.ResultSubTitle>
                     <S.VideoSection>
                         <S.VideoPreview src={VideoPreview} controls />
+                        <S.QRSection>
+                            <S.QRTitle>QR 코드를 통해 사진과<br />구매링크를 받아보실 수 있습니다.</S.QRTitle>
+                            <S.QRPreview>QR</S.QRPreview>
+                            <S.QRButton>
+                                <S.QRSearch src={Search} />
+                                <S.QRExpand>크게 보기</S.QRExpand>
+                            </S.QRButton>
+                            <S.QRNotice>*링크는 24시간동안 유효합니다.</S.QRNotice>
+                        </S.QRSection>
                     </S.VideoSection>
+                    <S.ResultInfo>예쁜 사진이네요! 제품 정보가 궁금하신가요?</S.ResultInfo>
+                    <S.InfoCheckSection>
+                        <S.InfoCheckLabel>
+                            네, 링크를 보내주세요
+                            <S.InfoCheck type="checkbox"/>
+                        </S.InfoCheckLabel>
+                        <S.InfoCheckLabel>
+                            아니요, 오늘은 구경만 할게요
+                            <S.InfoCheck type="checkbox"/>
+                        </S.InfoCheckLabel>
+                    </S.InfoCheckSection>
+                    <S.DownloadBtn type="button">이미지 받기</S.DownloadBtn>
                 </S.ResultModal>
             </S.ResultOverlay>
         </S.Wrapper>

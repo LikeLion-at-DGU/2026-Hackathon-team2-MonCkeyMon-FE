@@ -282,12 +282,12 @@ export const ResultOverlay = styled.div`
 
 export const ResultModal = styled.div`
     width: 740px;
-    height: 1000px;
+    height: 965px;
 
     box-sizing: border-box;
     padding: 40px;
 
-    background: ${({ theme }) => theme.colors.white};
+    background: ${({ theme }) => theme.colors.cardBg};
     border-radius: 20px;
 
     display: flex;
@@ -322,6 +322,7 @@ export const VideoSection = styled.div`
     flex-direction: row;
     gap: 28px;
     padding: 30px;
+    align-items: center;
 `;
 
 export const VideoPreview = styled.video`
@@ -329,5 +330,145 @@ export const VideoPreview = styled.video`
     height: 533px;
     aspect-ratio: 94/167;
     border-radius: 10px;
-    object-fit: cover
-`
+    object-fit: cover;
+`;
+
+export const QRSection = styled.div`
+    width: 300px;
+    height: 390px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background-color: ${({ theme }) => theme.colors.lightSand};
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const QRTitle = styled.p`
+    color: ${({ theme }) => theme.colors.lightBrown};
+    text-align: center;
+    font-family: ${({ theme }) => theme.fonts.body};
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+`;
+
+export const QRPreview = styled.div`
+    display: flex;
+    width: 200px;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+    background-color: ${({ theme }) => theme.colors.active};
+    color: ${({ theme }) => theme.colors.white};
+    text-align: center;
+    font-family: ${({ theme }) => theme.fonts.body};
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 10px;
+`;
+
+export const QRButton = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+`;
+
+export const QRExpand = styled.p`
+    color: ${({ theme }) => theme.colors.lightBrown};
+    text-align: center;
+    font-family: ${({ theme }) => theme.fonts.body};
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+`;
+
+export const QRSearch = styled.img`
+    width: 20px;
+    height: 20px;
+`;
+
+export const QRNotice = styled.p`
+    color: ${({ theme }) => theme.colors.lightBrown};
+    text-align: center;
+    font-family: ${({ theme }) => theme.fonts.body};
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+`;
+
+export const ResultInfo = styled.p`
+    color: ${({ theme }) => theme.colors.lightBrown};
+    text-align: center;
+    font-family: ${({ theme }) => theme.fonts.body};
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+`;
+
+export const InfoCheckSection = styled.div`
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+    padding-top: 16px;
+`;
+
+export const InfoCheckLabel = styled.label`
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    color: ${({ theme }) => theme.colors.lightBrown};
+    text-align: center;
+    font-family: ${({ theme }) => theme.fonts.body};
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+`;
+
+export const InfoCheck = styled.input`
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    color: ${({ theme }) => theme.colors.lightBrown};
+    border: 2px solid ${({ theme }) => theme.colors.lightBrown};
+    &:checked {
+    background-color: ${({ theme }) => theme.colors.lightBrown};
+    border-color: ${({ theme }) => theme.colors.lightBrown};
+    }
+`;
+
+export const DownloadBtn = styled.button`
+    display: flex;
+    width: 678px;
+    height: 100px;
+    padding: 32px 0;
+    margin-top: 24px;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+    border: 1px solid ${({ theme }) => theme.colors.greySand};
+
+    background: ${({ theme }) => theme.colors.camelBrown};
+    color: ${({ theme }) => theme.colors.cream};
+
+    font-family: ${({ theme }) => theme.fonts.body};
+    font-size: 30px;
+    font-weight: 500;
+
+    cursor: pointer;
+`;
