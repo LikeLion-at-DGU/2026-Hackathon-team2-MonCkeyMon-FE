@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AdminHeader from "../../components/admin/AdminHeader";
 import { getProductSessionFiltered } from "../../apis/adminApi";
 import { Stock } from "../../data/AdminStock";
+import SearchImg from "../../assets/images/Search.png";
 import * as S from "./StockPage.styled";
 
 function StockPage() {
@@ -35,7 +36,7 @@ function StockPage() {
                         </S.TabBtn>
                     </S.TabBox>
 
-                    <S.Search>
+                    <S.Search><S.SearchIcon src={SearchImg} />
                         <S.SearchText
                             type="text"
                             placeholder="검색하세요..."
@@ -45,30 +46,32 @@ function StockPage() {
                     </S.Search>
                 </S.Tab>
 
-                <S.Middle>
-                    <S.Name>제품명</S.Name>
-                    <S.Color>색상</S.Color>
-                    <S.Size>사이즈</S.Size>
-                    <S.Stock>재고 수</S.Stock>
-                </S.Middle>
-
-                {products.length === 0 ? (
+                {activeTab === "data" ? (
                     <S.NoData>해당 데이터가 없습니다.</S.NoData>
                 ) : (
-                    <S.Middle2>
-                        {products.map((product) => (
-                            <S.Detail key={product.id}>
-                                <S.Name>{product.name}</S.Name>
-                                <S.Color>{product.color}</S.Color>
-                                <S.Size>{product.size}</S.Size>
-                                <S.Stock>
-                                    {activeTab === "new"
-                                        ? (Stock[product.id] ?? "-")
-                                        : product.session_count}
-                                </S.Stock>
-                            </S.Detail>
-                        ))}
-                    </S.Middle2>
+                    <>
+
+                        <S.Middle>
+                            <S.Name>제품명</S.Name>
+                            <S.Color>색상</S.Color>
+                            <S.Size>사이즈</S.Size>
+                            <S.Stock>재고 수</S.Stock>
+                        </S.Middle>
+
+                        <S.Middle2>
+                            {products.map((product) => {
+                                console.log(product.id, product.name);
+                                return (
+                                    <S.Detail key={product.id}>
+                                        <S.Name2>{product.name}</S.Name2>
+                                        <S.Color>{product.color}</S.Color>
+                                        <S.Size>{product.size}</S.Size>
+                                        <S.Stock2>{Stock[product.id] ?? "-"}</S.Stock2>
+                                    </S.Detail>
+                                );
+                            })}
+                        </S.Middle2>
+                    </>
                 )}
             </S.Wrapper>
         </AdminHeader>

@@ -7,6 +7,22 @@ export const Wrapper = styled.div`
     width: ${({ theme }) => theme.size.frameWidth};
     height: ${({ theme }) => theme.size.frameHeight};
     background: ${({ theme }) => theme.colors.lightSand};
+    position: relative;
+`;
+
+export const BackBtn = styled.button`
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+`;
+
+export const BackIcon = styled.img`
+    width: 20px;
 `;
 
 export const Title = styled.div`
