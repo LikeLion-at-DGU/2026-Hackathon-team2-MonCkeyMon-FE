@@ -297,3 +297,37 @@ export const ResultModal = styled.div`
     transform: ${({ $show }) => ($show ? "scale(1)" : "scale(0.96)")};
     transition: transform 0.4s ease-out;
 `;
+
+export const ResultTitle = styled.h2`
+    text-align: center;
+    font-family: ${({ theme }) => theme.fonts.body};
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+`;
+
+export const ResultSubTitle = styled.h4`
+    text-align: center;
+    font-family: ${({ theme }) => theme.fonts.body};
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 12px;
+`;
+
+export const VideoSection = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 28px;
+    padding: 30px;
+`;
+
+export const VideoPreview = styled.video`
+    width: 300px;
+    height: 533px;
+    aspect-ratio: 94/167;
+    border-radius: 10px;
+    object-fit: cover
+`

@@ -8,6 +8,7 @@ import Chat from "../components/Chat/Chat";
 import PageHeader from "../components/PageHeader/PageHeader";
 import ProductCard from "../components/ProductCard/ProductCard";
 import upArrow from "../assets/images/UpArrow.svg"
+import VideoPreview from "../assets/videos/DemoVideo.mp4"
 
 const CHAT_ON_ENTER = 3;     
 const CHAT_BEFORE_SELECT = 5;
@@ -130,7 +131,11 @@ function ProductPage() {
 
             <S.ResultOverlay $show={showResultModal}>
                 <S.ResultModal $show={showResultModal}>
-                    
+                    <S.ResultTitle>여행의 순간, 제작 완료!</S.ResultTitle>
+                    <S.ResultSubTitle>실제 여행에서, 사진 속 아름다운 모습을 실현해보세요!</S.ResultSubTitle>
+                    <S.VideoSection>
+                        <S.VideoPreview src={VideoPreview} controls />
+                    </S.VideoSection>
                 </S.ResultModal>
             </S.ResultOverlay>
         </S.Wrapper>
