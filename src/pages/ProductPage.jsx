@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useExperienceStore } from "../store/experienceStore";
 import { useChatSequence } from "../hooks/useChatSequence";
 import { useProductFilter } from "../hooks/useProductFilter";
@@ -12,12 +12,13 @@ import upArrow from "../assets/images/UpArrow.svg"
 const CHAT_ON_ENTER = 3;     
 const CHAT_BEFORE_SELECT = 5;
 const CHAT_AFTER_SELECT = 7; 
+const RESULT_MODAL_DELAY = 1000;
 
 function ProductPage() {
     const setProductId = useExperienceStore((state) => state.setProductId);
 
     const [chatEnd, setChatEnd] = useState(CHAT_BEFORE_SELECT);
-    const { showModal, setShowModal, advanceTo } = useChatSequence({
+    const { visibleMessages, showModal, setShowModal, advanceTo } = useChatSequence({
         clampMin: CHAT_ON_ENTER,
         clampMax: CHAT_ON_ENTER,
         end: chatEnd,
@@ -26,6 +27,15 @@ function ProductPage() {
 
     const [expanded, setExpanded] = useState(false);
     const [selectedId, setSelectedId] = useState(null);
+    const [showResultModal, setShowResultModal] = useState(false);
+
+    useEffect(() => {
+        if (visibleMessages < CHAT_AFTER_SELECT) return;
+        const timer = setTimeout(() => {
+            setShowResultModal(true);
+        }, RESULT_MODAL_DELAY);
+        return () => clearTimeout(timer);
+    }, [visibleMessages]);
 
     const { top3 } = demoProduct;
     const { filtered, filterGroups } = useProductFilter();
@@ -35,7 +45,7 @@ function ProductPage() {
         setExpanded(false);
         setShowModal(false);
         setChatEnd(CHAT_AFTER_SELECT);
-        advanceTo(CHAT_BEFORE_SELECT + 1); // "제품을 선택했습니다"는 즉시, 나머지는 3초 간격
+        advanceTo(CHAT_BEFORE_SELECT + 1); 
     };
 
     const renderCard = (product) => (
@@ -117,6 +127,12 @@ function ProductPage() {
                     )}
                 </S.ModalContent>
             </S.BottomModal>
+
+            <S.ResultOverlay $show={showResultModal}>
+                <S.ResultModal $show={showResultModal}>
+                    
+                </S.ResultModal>
+            </S.ResultOverlay>
         </S.Wrapper>
     )
 }

@@ -263,3 +263,37 @@ export const SelectBtn = styled.button`
     z-index: 5;
 `;
 
+
+export const ResultOverlay = styled.div`
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(39, 32, 23, 0.35);
+
+    opacity: ${({ $show }) => ($show ? 1 : 0)};
+    visibility: ${({ $show }) => ($show ? "visible" : "hidden")};
+    transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+`;
+
+export const ResultModal = styled.div`
+    width: 740px;
+    height: 1000px;
+
+    box-sizing: border-box;
+    padding: 40px;
+
+    background: ${({ theme }) => theme.colors.white};
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    transform: ${({ $show }) => ($show ? "scale(1)" : "scale(0.96)")};
+    transition: transform 0.4s ease-out;
+`;
