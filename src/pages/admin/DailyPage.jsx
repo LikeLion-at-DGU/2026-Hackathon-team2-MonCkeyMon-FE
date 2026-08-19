@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import AdminHeader from "../../components/admin/AdminHeader";
 import Top5 from "../../components/admin/Top5";
 import ProductData from "../../components/admin/ProductData";
-import { getProductSession, getCategoryTop5, getChooseCountTop5, getVisitorCount, getDailyVisitorCount, } from "../../apis/adminApi";
-import Session from "../../components/admin/Session";
+import { getProductSession, getCategoryTop5, getChooseCountTop5, getVisitorCount, } from "../../apis/adminApi";
 import * as S from "./DailyPage.styled";
 
 function DailyPage() {
@@ -11,14 +10,12 @@ function DailyPage() {
     const [categoryTop5, setCategoryTop5] = useState([]);
     const [backgroundTop5, setBackgroundTop5] = useState([]);
     const [visitorCount, setVisitorCount] = useState(0);
-    const [dailyCounts, setDailyCounts] = useState([]);
 
     useEffect(() => {
         getProductSession().then((res) => setProducts(res.data));
         getCategoryTop5().then((res) => setCategoryTop5(res.data));
         getChooseCountTop5().then((res) => setBackgroundTop5(res.data.backgrounds));
         getVisitorCount().then((res) => setVisitorCount(res.data.total_visitor_count));
-        getDailyVisitorCount().then((res) => setDailyCounts(res.data));
     }, []);
 
     return (
