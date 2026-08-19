@@ -355,23 +355,6 @@ export const QRTitle = styled.p`
     line-height: normal;
 `;
 
-export const QRPreview = styled.div`
-    display: flex;
-    width: 200px;
-    height: 200px;
-    justify-content: center;
-    align-items: center;
-    aspect-ratio: 1/1;
-    background-color: ${({ theme }) => theme.colors.active};
-    color: ${({ theme }) => theme.colors.white};
-    text-align: center;
-    font-family: ${({ theme }) => theme.fonts.body};
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    border-radius: 10px;
-`;
 
 export const QRButton = styled.div`
     display: flex;
@@ -521,24 +504,6 @@ export const QRModalTitle = styled.p`
     line-height: normal;
 `;
 
-export const QRModalPreview = styled.div`
-    display: flex;
-    width: 550px;
-    height: 550px;
-    padding: 237px 0 265px 0;
-    justify-content: center;
-    align-items: center;
-    aspect-ratio: 1/1;
-    border-radius: 20px;
-    background: ${({ theme }) => theme.colors.active};
-    color: ${({ theme }) => theme.colors.white};
-    text-align: center;
-    font-family: ${({ theme }) => theme.fonts.body};
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-`;
 
 export const QRModalNotice = styled.p`
     color: ${({ theme }) => theme.colors.lightBrown};
