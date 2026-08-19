@@ -9,6 +9,7 @@ import * as S from "./ProductPage.styled";
 import Chat from "../components/Chat/Chat";
 import PageHeader from "../components/PageHeader/PageHeader";
 import ProductCard from "../components/ProductCard/ProductCard";
+import ShareQR from "../components/ShareQR/ShareQR";
 import upArrow from "../assets/images/UpArrow.svg"
 import Search from "../assets/images/Search.png"
 const CHAT_ON_ENTER = 3;     
@@ -183,7 +184,7 @@ function ProductPage() {
                         <S.ImagePreview src={compositeImage} />
                         <S.QRSection>
                             <S.QRTitle>QR 코드를 통해 사진과<br />구매링크를 받아보실 수 있습니다.</S.QRTitle>
-                            <S.QRPreview>QR</S.QRPreview>
+                            <ShareQR sessionId={sessionId} size={200} radius={10} />
                             <S.QRButton onClick={() => setShowQRModal(true)}>
                                 <S.QRSearch src={Search} />
                                 <S.QRExpand>크게 보기</S.QRExpand>
@@ -217,7 +218,7 @@ function ProductPage() {
             <S.QROverlay $show={showQRModal} onClick={() => setShowQRModal(false)}>
                 <S.QRModal $show={showQRModal} onClick={(e) => e.stopPropagation()} >
                     <S.QRModalTitle>QR 코드를 통해 사진과<br />구매링크를 받아보실 수 있습니다.</S.QRModalTitle>
-                    <S.QRModalPreview>QR</S.QRModalPreview>
+                    <ShareQR sessionId={sessionId} size={550} radius={20} />
                     <S.QRModalNotice>*링크는 24시간동안 유효합니다.</S.QRModalNotice>
                 </S.QRModal>
             </S.QROverlay>
