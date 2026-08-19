@@ -1,11 +1,21 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import bgImage from "../assets/images/LandingPage.png";
 import StartBtnImage from "../assets/images/StartBtn.png";
+
+const float = keyframes`
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-14px) rotate(4deg);
+    }
+`;
 
 export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
     width: ${({ theme }) => theme.size.frameWidth};
     height: ${({ theme }) => theme.size.frameHeight};
     background-image: url(${bgImage});
@@ -65,17 +75,12 @@ export const StartButton = styled.button`
     justify-content: space-between;
     width: 450px;
     height: 100px;
-    margin-top: 70px;
+    margin-top: 250px;
     background-image: url(${StartBtnImage});
     background-size: contain;
     background-repeat: no-repeat;
     color: ${({ theme }) => theme.colors.white};
-    font-family: ${({ theme }) => theme.fonts.display};
     filter: drop-shadow(0 1px 1px #000000);
-    font-size: 36px;
-    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
-    letter-spacing: 1.08px;
-    font-weight: 400;
     padding: 0 35px;
 
     &:active{
@@ -100,4 +105,9 @@ export const Arrow = styled.span`
 export const Logo = styled.img`
     margin-top: auto;
     margin-bottom: 22px;
+`;
+
+export const FloatItem = styled.img`
+    position: absolute;
+    animation: ${float} ease-in-out infinite;
 `;

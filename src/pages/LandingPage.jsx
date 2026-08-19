@@ -3,6 +3,9 @@ import { useChatStore } from "../store/chatStore";
 import titleImage from "../assets/images/Title.png";
 import diamondIcon from "../assets/images/Diamond.svg";
 import logoImage from "../assets/images/Logo.png";
+import airplaneImage from "../assets/images/Airplane.png";
+import ticketImage from "../assets/images/Ticket.png";
+import stickerImage from "../assets/images/Sticker.png";
 import * as S from "./LandingPage.styled";
 
 import { useExperienceStore } from "../store/experienceStore";
@@ -21,6 +24,18 @@ function LandingPage() {
   return (
     <S.Wrapper>
       <S.Title src={titleImage} />
+      <S.FloatItem
+        src={stickerImage}
+        style={{ width: "260px", top: "20px", left: "20px", animationDuration: "4s", transform: "rotate(-7.003deg)" }}
+      />
+      <S.FloatItem
+        src={airplaneImage}
+        style={{ width: "400px", top: "10px", right: "10px", animationDuration: "5s", animationDelay: "0.5s" }}
+      />
+      <S.FloatItem
+        src={ticketImage}
+        style={{ width: "330px", bottom: "250px", left: "0", animationDuration: "3.5s", animationDelay: "1s" }}
+      />
 
       <S.Divider>
         <S.Line />
