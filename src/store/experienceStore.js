@@ -7,6 +7,7 @@ export const useExperienceStore = create((set) => ({
     productId: null,
     product: null,
     guideAction: null,
+    compositeImage: null,
 
     setSessionId: (sessionId) => set({ sessionId }),
     setPhoto: (photo) => set({ photo }),
@@ -14,6 +15,7 @@ export const useExperienceStore = create((set) => ({
     setProductId: (productId) => set({ productId }),
     setProduct: (product) => set({ product }),
     setGuideAction: (guideAction) => set({ guideAction }),
+    setCompositeImage: (compositeImage) => set({ compositeImage }),
 
     reset: () => set({
         sessionId: null,
@@ -22,5 +24,6 @@ export const useExperienceStore = create((set) => ({
         productId: null,
         product: null,
         guideAction: null,
+        compositeImage: null,
     }),
 }));

@@ -325,7 +325,7 @@ export const VideoSection = styled.div`
     align-items: center;
 `;
 
-export const VideoPreview = styled.video`
+export const ImagePreview = styled.img`
     width: 300px;
     height: 533px;
     aspect-ratio: 94/167;

@@ -36,13 +36,13 @@ export const Diamond = styled.img`
     height: 14px;
 `;
 
-export const Video = styled.video`
+export const Photo = styled.img`
     width: 343px;
     height: 193px;
     aspect-ratio: 343/193;
 `;
 
-export const VideoLine = styled.div`
+export const PhotoLine = styled.div`
     width: 100px;
     height: 1px;
     margin: 0px 16px;
@@ -133,6 +133,7 @@ export const DownloadBtn = styled.button`
     font-weight: 600;
     line-height: normal;
     gap: 6px;
+    text-decoration: none;
 `;
 
 export const BtnImg = styled.img`
@@ -159,4 +160,5 @@ export const LinkBtn = styled.button`
     line-height: normal;
     gap: 6px;
     margin-top: 12px;
+    text-decoration: none;
 `;
