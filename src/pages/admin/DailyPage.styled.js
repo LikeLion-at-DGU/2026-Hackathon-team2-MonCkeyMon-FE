@@ -48,11 +48,6 @@ export const RankRow = styled.div`
     gap: 24px;
     margin-top: 16px;
     padding-bottom: 12px;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.greySand};
     margin-bottom: 12px;
     width: 930px;
-`;
-
-export const SessionGraph = styled.div`
-    margin-top: 16px;
 `;

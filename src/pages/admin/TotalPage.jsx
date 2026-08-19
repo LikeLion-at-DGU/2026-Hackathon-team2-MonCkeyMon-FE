@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import AdminHeader from "../../components/admin/AdminHeader";
 import Top5 from "../../components/admin/Top5";
 import ProductData from "../../components/admin/ProductData";
-import { getProductSession, getCategoryTop5, getChooseCountTop5, getVisitorCount, getDailyVisitorCount, } from "../../apis/adminApi";
+import { getProductSession, getCategoryTop5, getChooseCountTop5, getVisitorCount, getDailyVisitorCount, getTotalLink } from "../../apis/adminApi";
 import Session from "../../components/admin/Session";
-import * as S from "./DailyPage.styled";
+import * as S from "./TotalPage.styled";
 
 function TotalPage() {
     const [products, setProducts] = useState([]);
@@ -12,6 +12,8 @@ function TotalPage() {
     const [backgroundTop5, setBackgroundTop5] = useState([]);
     const [visitorCount, setVisitorCount] = useState(0);
     const [dailyCounts, setDailyCounts] = useState([]);
+    const [totalLinkReceived, setTotalLinkReceived] = useState(0);
+    const [totalLinkClick, setTotalLinkClick] = useState(0);
 
     useEffect(() => {
         getProductSession().then((res) => setProducts(res.data));
@@ -19,6 +21,10 @@ function TotalPage() {
         getChooseCountTop5().then((res) => setBackgroundTop5(res.data.backgrounds));
         getVisitorCount().then((res) => setVisitorCount(res.data.total_visitor_count));
         getDailyVisitorCount().then((res) => setDailyCounts(res.data));
+        getTotalLink().then((res) => {
+            setTotalLinkReceived(res.data.total_link_received);
+            setTotalLinkClick(res.data.total_link_click);
+        });
     }, []);
 
     return (
@@ -31,12 +37,12 @@ function TotalPage() {
 
                 <S.MiniBox>
                     <S.MiniTitle>총 링크 받기 수</S.MiniTitle>
-                    <S.MiniCount>0</S.MiniCount>
+                    <S.MiniCount>{totalLinkReceived}</S.MiniCount>
                 </S.MiniBox>
 
                 <S.MiniBox>
                     <S.MiniTitle>총 링크 접속 수</S.MiniTitle>
-                    <S.MiniCount>0</S.MiniCount>
+                    <S.MiniCount>{totalLinkClick}</S.MiniCount>
                 </S.MiniBox>
             </S.CardRow>
 
@@ -62,7 +68,7 @@ function TotalPage() {
             </S.RankRow>
 
             <S.SessionGraph>
-                <Session dailyCounts={dailyCounts} />
+                <Session dailyCounts={dailyCounts} totalCount={visitorCount} />
             </S.SessionGraph>
         </AdminHeader>
     );
