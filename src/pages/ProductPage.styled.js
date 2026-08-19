@@ -472,3 +472,81 @@ export const DownloadBtn = styled.button`
 
     cursor: pointer;
 `;
+export const QROverlay = styled.div`
+    position: absolute;
+    inset: 0;
+    z-index: 30;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(39, 32, 23, 0.35);
+
+    opacity: ${({ $show }) => ($show ? 1 : 0)};
+    visibility: ${({ $show }) => ($show ? "visible" : "hidden")};
+    transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+`;
+
+export const QRModal = styled.div`
+    width: 740px;
+    height: 965px;
+
+    box-sizing: border-box;
+    padding: 40px;
+
+    background: ${({ theme }) => theme.colors.lightSand};
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 67px;
+
+    transform: ${({ $show }) => ($show ? "scale(1)" : "scale(0.96)")};
+    transition: transform 0.4s ease-out;
+`;
+
+export const QRModalTitle = styled.p`
+    color: ${({ theme }) => theme.colors.lightBrown};
+    text-align: center;
+    font-family: ${({ theme }) => theme.fonts.body};
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+`;
+
+export const QRModalPreview = styled.div`
+    display: flex;
+    width: 550px;
+    height: 550px;
+    padding: 237px 0 265px 0;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+    border-radius: 20px;
+    background: ${({ theme }) => theme.colors.active};
+    color: ${({ theme }) => theme.colors.white};
+    text-align: center;
+    font-family: ${({ theme }) => theme.fonts.body};
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+`;
+
+export const QRModalNotice = styled.p`
+    color: ${({ theme }) => theme.colors.lightBrown};
+    text-align: center;
+    font-family: ${({ theme }) => theme.fonts.body};
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-top: 75px;
+`
