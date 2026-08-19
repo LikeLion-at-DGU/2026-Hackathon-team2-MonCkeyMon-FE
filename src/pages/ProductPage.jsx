@@ -1,8 +1,9 @@
 import { Fragment, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useExperienceStore } from "../store/experienceStore";
 import { useChatSequence } from "../hooks/useChatSequence";
 import { useProductFilter } from "../hooks/useProductFilter";
-import { selectProduct } from "../apis/experienceApi";
+import { selectProduct, receiveLink } from "../apis/experienceApi";
 import { createComposite } from "../apis/compositeApi";
 import * as S from "./ProductPage.styled";
 import Chat from "../components/Chat/Chat";
@@ -16,6 +17,8 @@ const CHAT_AFTER_SELECT = 7;
 const RESULT_MODAL_DELAY = 1000;
 
 function ProductPage() {
+    const navigate = useNavigate();
+
     const sessionId = useExperienceStore((state) => state.sessionId);
     const setProductId = useExperienceStore((state) => state.setProductId);
     const setProduct = useExperienceStore((state) => state.setProduct);
@@ -34,6 +37,7 @@ function ProductPage() {
     const [selectedId, setSelectedId] = useState(null);
     const [showResultModal, setShowResultModal] = useState(false);
     const [showQRModal, setShowQRModal] = useState(false);
+    const [linkChoice, setLinkChoice] = useState(null);
 
     useEffect(() => {
         if (!compositeImage || visibleMessages < CHAT_AFTER_SELECT) return;
@@ -68,6 +72,25 @@ function ProductPage() {
         } catch (error) {
             console.error(error);
         }
+    };
+
+    const handleLinkChoice = async (choice) => {
+        if (linkChoice === choice) return;
+        setLinkChoice(choice);
+
+        if (choice !== "yes") return;
+
+        try {
+            await receiveLink(sessionId);
+        } catch (error) {
+            console.error(error);
+            setLinkChoice(null);
+        }
+    };
+
+    const handleDownload = () => {
+        if (!sessionId) return;
+        navigate(`/share/${sessionId}`);
     };
 
     const renderCard = (product) => (
@@ -172,14 +195,22 @@ function ProductPage() {
                     <S.InfoCheckSection>
                         <S.InfoCheckLabel>
                             네, 링크를 보내주세요
-                            <S.InfoCheck type="checkbox"/>
+                            <S.InfoCheck
+                                type="checkbox"
+                                checked={linkChoice === "yes"}
+                                onChange={() => handleLinkChoice("yes")}
+                            />
                         </S.InfoCheckLabel>
                         <S.InfoCheckLabel>
                             아니요, 오늘은 구경만 할게요
-                            <S.InfoCheck type="checkbox"/>
+                            <S.InfoCheck
+                                type="checkbox"
+                                checked={linkChoice === "no"}
+                                onChange={() => handleLinkChoice("no")}
+                            />
                         </S.InfoCheckLabel>
                     </S.InfoCheckSection>
-                    <S.DownloadBtn type="button">이미지 받기</S.DownloadBtn>
+                    <S.DownloadBtn type="button" onClick={handleDownload}>이미지 받기</S.DownloadBtn>
                 </S.ResultModal>
             </S.ResultOverlay>
 
