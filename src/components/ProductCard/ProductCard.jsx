@@ -10,7 +10,7 @@ function ProductCard({ product, selected, onSelect }) {
             onClick={onSelect ? () => onSelect(product.id) : undefined}
         >
             <S.CardBox>
-                <S.CardImg src={product.image} alt={product.name} />
+                <S.CardImg src={product.overlay_image} alt={product.name} />
                 {selected && <S.CheckIcon src={checkIcon} />}
             </S.CardBox>
             <S.CardName>{product.name}</S.CardName>
