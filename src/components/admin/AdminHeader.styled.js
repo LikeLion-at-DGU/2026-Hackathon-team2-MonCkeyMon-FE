@@ -47,7 +47,7 @@ export const StoreTab = styled.button`
     font-weight: 500;
 `;
 
-export const DateTab = styled.button`
+export const DateTab = styled.span`
     display: flex;
     align-items: center;
     gap: 8px;
@@ -123,15 +123,18 @@ export const LeftTab = styled.button`
 
 export const Content = styled.main`
     flex: 1;
-    padding: 18px 12px 24px;
+    padding: 18px 12px 25px;
     overflow-y: auto;
 
     &::-webkit-scrollbar {
-        width: 3px;
+        width: 25px;
+        
     }
     &::-webkit-scrollbar-thumb {
         background: ${({ theme }) => theme.colors.greySand};
-        border-radius: 2px;
+        border-radius: 200px;
+        border: 10px solid transparent;
+        background-clip: padding-box; 
     }
 
     &::-webkit-scrollbar-track {

@@ -22,12 +22,8 @@ function AdminHeader({ children }) {
     const date = String(today.getDate()).padStart(2, "0");
     const todayText = `${year}.${month}.${date}`;
 
-    const DATES = [todayText];
-
     const [isStoreOpen, setIsStoreOpen] = useState(false);
-    const [isDateOpen, setIsDateOpen] = useState(false);
     const [selectedStore, setSelectedStore] = useState(STORES[0]);
-    const [selectedDate, setSelectedDate] = useState(todayText);
 
 
     return (
@@ -63,32 +59,7 @@ function AdminHeader({ children }) {
                         )}
                     </S.Dropdown>
 
-                    <S.Dropdown>
-                        <S.DateTab
-                            type="button"
-                            onClick={() => setIsDateOpen(!isDateOpen)}>
-                            {selectedDate}
-                        </S.DateTab>
-
-                        {isDateOpen && (
-                            <S.OptionList>
-                                {DATES.map((day) => (
-                                    <S.Option
-                                        key={day}
-                                        type="button"
-                                        $isSelected={day === selectedDate}
-                                        onClick={() => {
-                                            setSelectedDate(day);
-                                            setIsDateOpen(false);
-                                        }}
-                                    >
-                                        {day === selectedDate && "✓ "}
-                                        {day}
-                                    </S.Option>
-                                ))}
-                            </S.OptionList>
-                        )}
-                    </S.Dropdown>
+                    <S.DateTab>{todayText}</S.DateTab>
                 </S.Info>
             </S.Header>
 

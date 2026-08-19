@@ -91,7 +91,6 @@ export const CatName = styled.div`
     font-family: ${({ theme }) => theme.fonts.body};
     font-size: 24px;
     font-weight: 500;
-    margin-bottom: 30px;
 `;
 
 export const Title2 = styled.h2`
@@ -244,7 +243,7 @@ export const MoreBtn = styled.button`
     display: flex;
     align-items: center;
     gap: 13px;
-    color: ${({ theme }) => theme.colors.camelBrown};
+    color: ${({ theme }) => theme.colors.greySand};
     font-family: ${({ theme }) => theme.fonts.body};
     font-size: 16px;
     font-weight: 400;

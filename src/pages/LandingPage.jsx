@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { useChatStore } from "../store/chatStore";
 import titleImage from "../assets/images/Title.png";
 import diamondIcon from "../assets/images/Diamond.svg";
-import stampImage from "../assets/images/Stamp.png";
 import logoImage from "../assets/images/Logo.png";
 import * as S from "./LandingPage.styled";
 
@@ -39,11 +38,7 @@ function LandingPage() {
         서비스 설명 {">"}
       </S.ServiceLink>
 
-      <S.StartButton type="button" onClick={handleStart}>
-        <S.Stamp src={stampImage} />
-        START
-        <S.Arrow>→</S.Arrow>
-      </S.StartButton>
+      <S.StartButton type="button" onClick={handleStart}></S.StartButton>
 
       <S.Logo src={logoImage} />
     </S.Wrapper>
