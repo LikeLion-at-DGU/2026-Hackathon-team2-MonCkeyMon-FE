@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import AdminHeader from "../../components/admin/AdminHeader";
 import Top5 from "../../components/admin/Top5";
 import ProductData from "../../components/admin/ProductData";
-import { getProductSession, getCategoryTop5, getChooseCountTop5, getVisitorCount, getDailyVisitorCount, } from "../../apis/adminApi";
-import Session from "../../components/admin/Session";
+import { getProductSession, getCategoryTop5, getChooseCountTop5, getVisitorCount, getTodayLinkCount, getTodayClickCount, } from "../../apis/adminApi";
 import * as S from "./DailyPage.styled";
 
 function DailyPage() {
@@ -11,14 +10,17 @@ function DailyPage() {
     const [categoryTop5, setCategoryTop5] = useState([]);
     const [backgroundTop5, setBackgroundTop5] = useState([]);
     const [visitorCount, setVisitorCount] = useState(0);
-    const [dailyCounts, setDailyCounts] = useState([]);
+    const [todayLinkCount, setTodayLinkCount] = useState(0);
+    const [todayClickCount, setTodayClickCount] = useState(0);
+
 
     useEffect(() => {
         getProductSession().then((res) => setProducts(res.data));
         getCategoryTop5().then((res) => setCategoryTop5(res.data));
         getChooseCountTop5().then((res) => setBackgroundTop5(res.data.backgrounds));
         getVisitorCount().then((res) => setVisitorCount(res.data.total_visitor_count));
-        getDailyVisitorCount().then((res) => setDailyCounts(res.data));
+        getTodayLinkCount().then((res) => setTodayLinkCount(res.data.today_link_count));
+        getTodayClickCount().then((res) => setTodayClickCount(res.data.today_click_count));
     }, []);
 
     return (
@@ -31,12 +33,12 @@ function DailyPage() {
 
                 <S.MiniBox>
                     <S.MiniTitle>금일 링크 받기 수</S.MiniTitle>
-                    <S.MiniCount>0</S.MiniCount>
+                    <S.MiniCount>{todayLinkCount}</S.MiniCount>
                 </S.MiniBox>
 
                 <S.MiniBox>
                     <S.MiniTitle>금일 링크 접속 수</S.MiniTitle>
-                    <S.MiniCount>0</S.MiniCount>
+                    <S.MiniCount>{todayClickCount}</S.MiniCount>
                 </S.MiniBox>
             </S.CardRow>
 
