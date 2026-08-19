@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+import backIcon from "../assets/images/BackIcon.svg";
 import diamondIcon from "../assets/images/Diamond.svg";
 import logoImage from "../assets/images/Logo.png";
 import step1Image from "../assets/images/Step1.png";
@@ -38,15 +40,20 @@ const STEPS = [
 ];
 
 function ServicePage() {
+    const navigate = useNavigate();
+
     return (
         <S.Wrapper>
+            <S.BackBtn type="button" onClick={() => navigate(-1)}>
+                <S.BackIcon src={backIcon} />
+            </S.BackBtn>
             <S.Title>서비스 소개</S.Title>
             <S.Box1>
                 <S.Text1>
-                    여행가방 하나로 시작해 지금까지 자유롭게 세상을 오가는 사람들, 디지털 노마드와 함께하는 <br/>MCM!
-                    <br/>그런데 정작 국내에서는 그 이야기가 잘 전해지지 못했죠. 그래서 이 서비스를 만들었습니다. 
-                    <br/><span>당신이 고른 나라와 MCM 가방이 당신과 만나 짧은 영상 속 하나의 여행 순간이 됩니다.</span>
-                    <br/>MCM을 다시 보게 되는 경험. 지금, 첫 여정을 시작해 보세요.
+                    여행가방 하나로 시작해 지금까지 자유롭게 세상을 오가는 사람들, 디지털 노마드와 함께하는 <br />MCM!
+                    <br />그런데 정작 국내에서는 그 이야기가 잘 전해지지 못했죠. 그래서 이 서비스를 만들었습니다.
+                    <br /><span>당신이 고른 나라와 MCM 가방이 당신과 만나 짧은 영상 속 하나의 여행 순간이 됩니다.</span>
+                    <br />MCM을 다시 보게 되는 경험. 지금, 첫 여정을 시작해 보세요.
                 </S.Text1>
             </S.Box1>
 

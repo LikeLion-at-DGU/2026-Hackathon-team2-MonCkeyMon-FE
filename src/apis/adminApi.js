@@ -14,3 +14,6 @@ export const getVisitorCount = () =>
 
 export const getDailyVisitorCount = () =>
     axiosInstance.get("/api/analytics/visitor-count/daily/");
+
+export const getProductSessionFiltered = (params) =>
+    axiosInstance.get("/api/analytics/product-session/", { params });

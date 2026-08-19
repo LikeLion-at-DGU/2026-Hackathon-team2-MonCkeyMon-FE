@@ -10,7 +10,7 @@ import { useExperienceStore } from "../store/experienceStore";
 const COUNT_MESSAGES = {
     5: "곧 촬영이 시작됩니다.",
     4: "정면 얼굴이 나와야 더 좋은 영상이 제작됩니다.",
-    3: "정면 얼굴이 나와야 더 좋은 영상이 제작됩니다.",
+    3: "곧 촬영이 시작됩니다.",
     2: "곧 촬영이 시작됩니다.",
     1: "곧 촬영이 시작됩니다.",
 };
