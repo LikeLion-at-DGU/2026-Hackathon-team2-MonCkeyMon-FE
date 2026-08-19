@@ -549,4 +549,4 @@ export const QRModalNotice = styled.p`
     font-weight: 500;
     line-height: normal;
     padding-top: 75px;
-`
+`;

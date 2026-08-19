@@ -3,19 +3,13 @@ import * as S from "./Chat.styled";
 import profile from "../../assets/images/Profile.png";
 import threeDiamond from "../../assets/images/ThreeDiamond.svg";
 import { chatMessages } from "../../data/chatData";
-import { demoProduct } from "../../data/demo_product";
 import { useChatStore } from "../../store/chatStore";
 import { useExperienceStore } from "../../store/experienceStore";
 import ProductCard from "../ProductCard/ProductCard";
 
 function Chat() {
     const { visibleMessages } = useChatStore();
-    const productId = useExperienceStore((state) => state.productId);
-
-    const selectedProduct = useMemo(
-        () => demoProduct.products.find((product) => product.id === productId) ?? null,
-        [productId]
-    );
+    const selectedProduct = useExperienceStore((state) => state.product);
 
     const { groups, showLoading } = useMemo(() => {
         const visible = chatMessages.slice(0, visibleMessages);

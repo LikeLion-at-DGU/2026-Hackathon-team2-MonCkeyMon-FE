@@ -2,7 +2,6 @@ import { Fragment, useEffect, useState } from "react";
 import { useExperienceStore } from "../store/experienceStore";
 import { useChatSequence } from "../hooks/useChatSequence";
 import { useProductFilter } from "../hooks/useProductFilter";
-import { demoProduct } from "../data/demo_product";
 import * as S from "./ProductPage.styled";
 import Chat from "../components/Chat/Chat";
 import PageHeader from "../components/PageHeader/PageHeader";
@@ -17,6 +16,7 @@ const RESULT_MODAL_DELAY = 1000;
 
 function ProductPage() {
     const setProductId = useExperienceStore((state) => state.setProductId);
+    const setProduct = useExperienceStore((state) => state.setProduct);
 
     const [chatEnd, setChatEnd] = useState(CHAT_BEFORE_SELECT);
     const { visibleMessages, showModal, setShowModal, advanceTo } = useChatSequence({
@@ -39,11 +39,14 @@ function ProductPage() {
         return () => clearTimeout(timer);
     }, [visibleMessages]);
 
-    const { top3 } = demoProduct;
-    const { filtered, filterGroups } = useProductFilter();
+    const { top3, filtered, filterGroups, loading } = useProductFilter();
 
     const handleConfirm = () => {
+        const selected =
+            [...top3, ...filtered].find((product) => product.id === selectedId) ?? null;
+
         setProductId(selectedId);
+        setProduct(selected);
         setExpanded(false);
         setShowModal(false);
         setChatEnd(CHAT_AFTER_SELECT);
@@ -115,9 +118,11 @@ function ProductPage() {
                             </S.DiamondDivider>
 
                             <S.ProductList $hasSelectBtn={selectedId !== null}>
-                                {filtered.length > 0
-                                    ? filtered.map(renderCard)
-                                    : <S.EmptyText>해당 조건의 상품이 없습니다.</S.EmptyText>}
+                                {loading && <S.EmptyText>상품을 불러오는 중입니다...</S.EmptyText>}
+                                {!loading && filtered.length === 0 && (
+                                    <S.EmptyText>해당 조건의 상품이 없습니다.</S.EmptyText>
+                                )}
+                                {!loading && filtered.map(renderCard)}
                             </S.ProductList>
                         </>
                     )}
