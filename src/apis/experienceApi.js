@@ -15,3 +15,6 @@ export const selectProduct = (sessionId, productId) =>
     axiosInstance.patch(`/api/experiences/${sessionId}/`, {
         product_id: productId,
     });
+
+export const receiveLink = (sessionId) =>
+    axiosInstance.post(`/api/experiences/${sessionId}/link/`);

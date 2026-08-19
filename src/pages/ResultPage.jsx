@@ -10,6 +10,7 @@ import diamondIcon from "../assets/images/Diamond.svg";
 import MapIcon from "../assets/images/Map.png"
 import Picture from "../assets/images/Picture.png"
 import Link from "../assets/images/Link.png"
+import Post from "../assets/videos/Post.mp4"
 
 function ResultPage() {
     const { sessionId: sessionIdParam } = useParams();
@@ -57,7 +58,7 @@ function ResultPage() {
                     <S.Diamond src={diamondIcon} alt="" />
                 <S.HeaderLine />
             </S.Divider>
-            {share && <S.Photo src={share.composite_image_url} />}
+            <S.Photo src={Post} autoPlay loop muted playsInline />
             <S.Divider>
                 <S.PhotoLine />
                     <S.DividerText>사진 정보</S.DividerText>

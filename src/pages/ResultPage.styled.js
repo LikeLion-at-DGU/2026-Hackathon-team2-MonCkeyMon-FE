@@ -36,10 +36,11 @@ export const Diamond = styled.img`
     height: 14px;
 `;
 
-export const Photo = styled.img`
+export const Photo = styled.video`
     width: 343px;
     height: 193px;
     aspect-ratio: 343/193;
+    object-fit: cover;
 `;
 
 export const PhotoLine = styled.div`
