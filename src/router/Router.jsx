@@ -31,6 +31,7 @@ function Router() {
             <Route path="/product" element={<ProductPage />} />
 
             <Route path="/Result" element={<ResultPage />} />
+            <Route path="/share/:sessionId" element={<ResultPage />} />
 
             <Route path="/admin" element={<CoverPage />} />
             <Route path="/admin/daily" element={<DailyPage />} />

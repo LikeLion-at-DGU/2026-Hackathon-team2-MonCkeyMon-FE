@@ -3,12 +3,12 @@ import { useExperienceStore } from "../store/experienceStore";
 import { useChatSequence } from "../hooks/useChatSequence";
 import { useProductFilter } from "../hooks/useProductFilter";
 import { selectProduct } from "../apis/experienceApi";
+import { createComposite } from "../apis/compositeApi";
 import * as S from "./ProductPage.styled";
 import Chat from "../components/Chat/Chat";
 import PageHeader from "../components/PageHeader/PageHeader";
 import ProductCard from "../components/ProductCard/ProductCard";
 import upArrow from "../assets/images/UpArrow.svg"
-import VideoPreview from "../assets/videos/DemoVideo.mp4"
 import Search from "../assets/images/Search.png"
 const CHAT_ON_ENTER = 3;     
 const CHAT_BEFORE_SELECT = 5;
@@ -19,6 +19,8 @@ function ProductPage() {
     const sessionId = useExperienceStore((state) => state.sessionId);
     const setProductId = useExperienceStore((state) => state.setProductId);
     const setProduct = useExperienceStore((state) => state.setProduct);
+    const setCompositeImage = useExperienceStore((state) => state.setCompositeImage);
+    const compositeImage = useExperienceStore((state) => state.compositeImage);
 
     const [chatEnd, setChatEnd] = useState(CHAT_BEFORE_SELECT);
     const { visibleMessages, showModal, setShowModal, advanceTo } = useChatSequence({
@@ -34,12 +36,12 @@ function ProductPage() {
     const [showQRModal, setShowQRModal] = useState(false);
 
     useEffect(() => {
-        if (visibleMessages < CHAT_AFTER_SELECT) return;
+        if (!compositeImage || visibleMessages < CHAT_AFTER_SELECT) return;
         const timer = setTimeout(() => {
             setShowResultModal(true);
         }, RESULT_MODAL_DELAY);
         return () => clearTimeout(timer);
-    }, [visibleMessages]);
+    }, [compositeImage, visibleMessages]);
 
     const { top3, filtered, filterGroups, loading } = useProductFilter();
 
@@ -59,6 +61,13 @@ function ProductPage() {
         setShowModal(false);
         setChatEnd(CHAT_AFTER_SELECT);
         advanceTo(CHAT_BEFORE_SELECT + 1); 
+
+        try {
+            const res = await createComposite(sessionId);
+            setCompositeImage(res.data.image_url);
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     const renderCard = (product) => (
@@ -148,7 +157,7 @@ function ProductPage() {
                     <S.ResultTitle>여행의 순간, 제작 완료!</S.ResultTitle>
                     <S.ResultSubTitle>실제 여행에서, 사진 속 아름다운 모습을 실현해보세요!</S.ResultSubTitle>
                     <S.VideoSection>
-                        <S.VideoPreview src={VideoPreview} controls />
+                        <S.ImagePreview src={compositeImage} />
                         <S.QRSection>
                             <S.QRTitle>QR 코드를 통해 사진과<br />구매링크를 받아보실 수 있습니다.</S.QRTitle>
                             <S.QRPreview>QR</S.QRPreview>
