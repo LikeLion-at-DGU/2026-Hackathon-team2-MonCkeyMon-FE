@@ -26,7 +26,7 @@ function LandingPage() {
       <S.Title src={titleImage} />
       <S.FloatItem
         src={stickerImage}
-        style={{ width: "260px", top: "20px", left: "20px", animationDuration: "4s", transform: "rotate(-7.003deg)" }}
+        style={{ width: "260px", top: "25px", left: "20px", animationDuration: "4s", transform: "rotate(-7.003deg)" }}
       />
       <S.FloatItem
         src={airplaneImage}
