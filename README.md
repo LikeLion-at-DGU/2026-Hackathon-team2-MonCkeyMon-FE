@@ -42,7 +42,7 @@
 
 1. **오픈채팅 스타일 대화형 UI** — 카카오톡 오픈채팅에서 흔히 보는 채팅 버블·프로필 아이콘 컨벤션을 자체 웹앱에 구현한 것으로, 실제 카카오 플랫폼과의 API 연동은 아니다. 고객에게 익숙한 UI 문법을 그대로 가져와 별도 학습 없이 바로 이해되는 인터페이스를 만드는 것이 목적.카카오톡 오픈채팅에서 흔히 보는 채팅 버블·프로필 아이콘 컨벤션을 자체 웹앱에 구현한 것으로, 실제 카카오 플랫폼과의 API 연동은 아니다. 고객에게 익숙한 UI 문법을 그대로 가져와 별도 학습 없이 바로 이해되는 인터페이스를 만드는 것이 목적.
 2. **촬영 기반 OpenAI 합성** — 실시간 프레임 단위 처리 대신, 고객이 국가 배경을 고르고 사진 또는 짧은 영상을 1컷 촬영하면 그 결과물을 OpenAI 합성(이미지/영상 편집) API에 전달해 선택한 제품과 배경을 합성한다. 실시간 CV 파이프라인이 없어 프론트엔드 구현 부담이 크게 줄고, 처리 대기 시간은 채팅 UI의 "입력 중..." 연출로 자연스럽게 채운다.
-3. **세션당 최대 3회 반복 체험** — 한 세션에서 서로 다른 제품·국가 조합으로 최대 3개의 결과물을 받을 수 있다. 첫 결과물을 받은 뒤 "다른 가방도 보시겠어요?" 같은 제안을 채팅 메시지로 이어붙여 반복 체험을 유도한다.
+3. **데이터 기반 관리자 페이지** — 고객 체험 과정에서 발생하는 세션, 배경 선택, 제품 관심도, 링크 전환 데이터를 실시간으로 집계해 관리자 페이지에서 확인한다. 단순 방문자 수 집계를 넘어, 각 데이터별로 가중치를 적용한 관심도 지수로 제품별 수요를 확인하고, 이를 기반으로 재고 관리 방향까지 제시한다. 해당 팝업스토어가 끝나면 고객은 원하는 제품 및 배경과의 사진을, 기업은 이 데이터로 다음 시즌 제품 기획 및 재고 관리에 실질적으로 활용 가능한 인사이트를 얻는다.
 
 ## 기술 스택
 
@@ -52,18 +52,10 @@
 | 프레임워크 | React 19 |
 | 빌드 도구 | Vite |
 | 라우팅 | React Router |
-| 스타일 | CSS |
-(일단 프론트만 작성했습니다)
-
-## 페이지 및 라우팅
-
-| 경로 | 컴포넌트 | 설명 |
-| --- | --- | --- |
-| `/` | `LandingPage` | 프로젝트의 시작 화면. 팀 이름과 두 개의 이동 버튼 |
-| `/team` | `TeamPage` | 팀원과 역할 소개 |
-| `/project` | `ProjectPage` | 프로젝트 주제 및 핵심 기능 소개 |
-| `*` | `NotFoundPage` | 정의되지 않은 경로 처리 |
-
+| 스타일 | styled-components |
+| 상태관리 | Zustand |
+| http 통신 | Axios |
+| 배포 | Netlify |
 
 ## 실행 방법
 
@@ -87,24 +79,34 @@ npm run preview
 MCM/
 ├─ public/
 ├─ src/
+│  ├─ apis/
+│  ├─ assets/
+│  │  ├─ fonts/
+│  │  ├─ images/
+│  │  └─ videos/
 │  ├─ components/
-│  │  ├─ PageHeader.jsx      # 하위 페이지 공통 헤더 (useNavigate 사용)
-│  │  └─ PageHeader.css
+│  │  ├─ admin/
+│  │  ├─ Chat/
+│  │  ├─ PageHeader/
+│  │  ├─ ProductCard/
+│  │  └─ ShareQR/
 │  ├─ data/
-│  │  └─ info.js             # 팀·프로젝트 정보를 모아둔 파일
+│  ├─ hooks/
 │  ├─ pages/
-│  │  ├─ LandingPage.jsx
-│  │  ├─ LandingPage.css
-│  │  ├─ TeamPage.jsx
-│  │  ├─ TeamPage.css
-│  │  ├─ ProjectPage.jsx
-│  │  ├─ ProjectPage.css
-│  │  └─ NotFoundPage.jsx
-│  ├─ App.jsx                # Routes 정의
-│  ├─ App.css                # 공통 스타일 (.page, .btn, .section)
-│  ├─ index.css              # 리셋 + 디자인 토큰
-│  └─ main.jsx               # BrowserRouter 설정
+│  │  └─ admin/          # 관리자 페이지
+│  ├─ router/
+│  ├─ store/
+│  ├─ styles/
+│  ├─ utils/
+│  ├─ App.jsx
+│  └─ main.jsx
+│
+├─ .gitignore
+├─ eslint.config.js
 ├─ index.html
+├─ netlify.toml
 ├─ package.json
+├─ package-lock.json
+├─ README.md
 └─ vite.config.js
 ```
