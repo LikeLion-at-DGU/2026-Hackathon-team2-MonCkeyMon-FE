@@ -20,3 +20,6 @@ export const getProductSessionFiltered = (params) =>
 
 export const getProductInterest = () =>
     axiosInstance.get("/api/analytics/product-interest/");
+
+export const getTotalLink = () =>
+    axiosInstance.get("/api/analytics/total-link/");

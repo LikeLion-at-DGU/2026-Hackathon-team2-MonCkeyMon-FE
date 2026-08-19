@@ -60,10 +60,6 @@ function DailyPage() {
                     }))}
                 />
             </S.RankRow>
-
-            <S.SessionGraph>
-                <Session dailyCounts={dailyCounts} />
-            </S.SessionGraph>
         </AdminHeader>
     );
 }
