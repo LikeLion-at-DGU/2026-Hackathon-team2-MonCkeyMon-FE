@@ -23,3 +23,9 @@ export const getProductInterest = () =>
 
 export const getTotalLink = () =>
     axiosInstance.get("/api/analytics/total-link/");
+
+export const getTodayLinkCount = () =>
+    axiosInstance.get("/api/analytics/today-link-count/");
+
+export const getTodayClickCount = () =>
+    axiosInstance.get("/api/analytics/today-click-count/");
