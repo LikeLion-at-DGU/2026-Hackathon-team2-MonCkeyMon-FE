@@ -14,6 +14,7 @@ import DailyPage from "../pages/admin/DailyPage";
 import TotalPage from "../pages/admin/TotalPage";
 import InfoPage from "../pages/admin/InfoPage";
 import StockPage from "../pages/admin/StockPage";
+import DemandPage from "../pages/admin/DemandPage";
 
 import ResultPage from "../pages/ResultPage";
 
@@ -36,6 +37,7 @@ function Router() {
             <Route path="/admin/total" element={<TotalPage />} />
             <Route path="/admin/info" element={<InfoPage />} />
             <Route path="/admin/stock" element={<StockPage />} />
+            <Route path="/admin/ai" element={<DemandPage />} />
         </Routes>
     );
 }
