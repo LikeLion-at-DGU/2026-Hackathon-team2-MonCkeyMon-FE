@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import { useExperienceStore } from "../store/experienceStore";
 import { useChatSequence } from "../hooks/useChatSequence";
 import { useProductFilter } from "../hooks/useProductFilter";
+import { selectProduct } from "../apis/experienceApi";
 import * as S from "./ProductPage.styled";
 import Chat from "../components/Chat/Chat";
 import PageHeader from "../components/PageHeader/PageHeader";
@@ -15,6 +16,7 @@ const CHAT_AFTER_SELECT = 7;
 const RESULT_MODAL_DELAY = 1000;
 
 function ProductPage() {
+    const sessionId = useExperienceStore((state) => state.sessionId);
     const setProductId = useExperienceStore((state) => state.setProductId);
     const setProduct = useExperienceStore((state) => state.setProduct);
 
@@ -41,9 +43,15 @@ function ProductPage() {
 
     const { top3, filtered, filterGroups, loading } = useProductFilter();
 
-    const handleConfirm = () => {
+    const handleConfirm = async () => {
         const selected =
             [...top3, ...filtered].find((product) => product.id === selectedId) ?? null;
+
+        try {
+            await selectProduct(sessionId, selectedId);
+        } catch (error) {
+            console.error(error);
+        }
 
         setProductId(selectedId);
         setProduct(selected);
