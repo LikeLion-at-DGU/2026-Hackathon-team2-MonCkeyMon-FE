@@ -78,21 +78,19 @@ function ProductPage() {
         }
     };
 
-    const handleLinkChoice = async (choice) => {
-        if (linkChoice === choice) return;
+    const handleLinkChoice = (choice) => {
         setLinkChoice(choice);
-
-        if (choice !== "yes") return;
-
-        try {
-            await receiveLink(sessionId);
-        } catch (error) {
-            console.error(error);
-            setLinkChoice(null);
-        }
     };
 
-    const handleRestart = () => {
+    const handleRestart = async () => {
+        if (linkChoice === "yes") {
+            try {
+                await receiveLink(sessionId);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
         setShowResultModal(false);
         setShowQRModal(false);
         resetExperience();
