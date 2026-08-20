@@ -13,7 +13,6 @@ import ProductCard from "../components/ProductCard/ProductCard";
 import ShareQR from "../components/ShareQR/ShareQR";
 import upArrow from "../assets/images/UpArrow.svg"
 import Search from "../assets/images/Search.png"
-import backIcon from "../assets/images/BackIcon.svg"
 const CHAT_ON_ENTER = 3;
 const CHAT_BEFORE_SELECT = 5;
 const CHAT_AFTER_SELECT = 7;
