@@ -6,8 +6,13 @@ export const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
     width: 375px;
-    height: 812px;
+    min-height: 812px;
+    padding-bottom: 32px;
     background-color: ${({ theme }) => theme.colors.cream};
+
+    & > * {
+        flex-shrink: 0;
+    }
 `;
 
 export const HeaderLogo = styled.img`
