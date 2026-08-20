@@ -32,3 +32,6 @@ export const getTodayClickCount = () =>
 
 export const getTodayVisitorCount = () =>
     axiosInstance.get("/api/analytics/visitor-count/today/");
+
+export const getTodayProductSession = () =>
+    axiosInstance.get("/api/analytics/product-session/", { params: { period: "today" } });
