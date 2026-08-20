@@ -23,6 +23,7 @@ export const chatMessages = [
     },
     {
         isMine: true,
+        delay: 1000,
         content: (
             <>
                 사진과 배경을 전송했습니다.
