@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 export const ChatList = styled.div`
     display: flex;
@@ -25,7 +25,11 @@ export const ChatMessage = styled.div`
     align-items: flex-start;
     gap: 10px;
 
-    animation: ${riseIn} 0.45s ease-out;
+    ${({ $instant }) =>
+        !$instant &&
+        css`
+            animation: ${riseIn} 0.45s ease-out;
+        `}
 
     ${({ $mine }) =>
         $mine &&
