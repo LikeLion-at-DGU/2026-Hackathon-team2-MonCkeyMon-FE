@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import AdminHeader from "../../components/admin/AdminHeader";
 import Top5 from "../../components/admin/Top5";
 import ProductData from "../../components/admin/ProductData";
-import { getProductSession, getCategoryTop5, getChooseCountTop5, getVisitorCount, getTodayLinkCount, getTodayClickCount, } from "../../apis/adminApi";
+import { getProductSession, getCategoryTop5, getChooseCountTop5, getTodayVisitorCount, getTodayLinkCount, getTodayClickCount, } from "../../apis/adminApi";
 import * as S from "./DailyPage.styled";
 
 function DailyPage() {
     const [products, setProducts] = useState([]);
     const [categoryTop5, setCategoryTop5] = useState([]);
     const [backgroundTop5, setBackgroundTop5] = useState([]);
-    const [visitorCount, setVisitorCount] = useState(0);
+    const [todayVisitorCount, setTodayVisitorCount] = useState(0);
     const [todayLinkCount, setTodayLinkCount] = useState(0);
     const [todayClickCount, setTodayClickCount] = useState(0);
 
@@ -18,7 +18,7 @@ function DailyPage() {
         getProductSession().then((res) => setProducts(res.data));
         getCategoryTop5().then((res) => setCategoryTop5(res.data));
         getChooseCountTop5().then((res) => setBackgroundTop5(res.data.backgrounds));
-        getVisitorCount().then((res) => setVisitorCount(res.data.total_visitor_count));
+        getTodayVisitorCount().then((res) => setTodayVisitorCount(res.data.today_visitor_count));
         getTodayLinkCount().then((res) => setTodayLinkCount(res.data.today_link_count));
         getTodayClickCount().then((res) => setTodayClickCount(res.data.today_click_count));
     }, []);
@@ -28,7 +28,7 @@ function DailyPage() {
             <S.CardRow>
                 <S.MiniBox>
                     <S.MiniTitle>금일 세션 수</S.MiniTitle>
-                    <S.MiniCount>{visitorCount}</S.MiniCount>
+                    <S.MiniCount>{todayVisitorCount}</S.MiniCount>
                 </S.MiniBox>
 
                 <S.MiniBox>
