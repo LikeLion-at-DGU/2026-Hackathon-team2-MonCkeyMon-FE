@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useExperienceStore } from "../store/experienceStore";
+import { useChatStore } from "../store/chatStore";
 import { useChatSequence } from "../hooks/useChatSequence";
 import { useProductFilter } from "../hooks/useProductFilter";
 import { selectProduct, receiveLink } from "../apis/experienceApi";
@@ -12,6 +13,7 @@ import ProductCard from "../components/ProductCard/ProductCard";
 import ShareQR from "../components/ShareQR/ShareQR";
 import upArrow from "../assets/images/UpArrow.svg"
 import Search from "../assets/images/Search.png"
+import backIcon from "../assets/images/BackIcon.svg"
 const CHAT_ON_ENTER = 3;     
 const CHAT_BEFORE_SELECT = 5;
 const CHAT_AFTER_SELECT = 7; 
@@ -25,6 +27,8 @@ function ProductPage() {
     const setProduct = useExperienceStore((state) => state.setProduct);
     const setCompositeImage = useExperienceStore((state) => state.setCompositeImage);
     const compositeImage = useExperienceStore((state) => state.compositeImage);
+    const resetExperience = useExperienceStore((state) => state.reset);
+    const resetMessages = useChatStore((state) => state.resetMessages);
 
     const [chatEnd, setChatEnd] = useState(CHAT_BEFORE_SELECT);
     const { visibleMessages, showModal, setShowModal, advanceTo } = useChatSequence({
@@ -87,6 +91,14 @@ function ProductPage() {
             console.error(error);
             setLinkChoice(null);
         }
+    };
+
+    const handleRestart = () => {
+        setShowResultModal(false);
+        setShowQRModal(false);
+        resetExperience();
+        resetMessages();
+        navigate("/", { replace: true });
     };
 
     const handleDownload = () => {
@@ -178,6 +190,10 @@ function ProductPage() {
 
             <S.ResultOverlay $show={showResultModal}>
                 <S.ResultModal $show={showResultModal}>
+                    <S.RestartBtn type="button" onClick={handleRestart} aria-label="처음으로 돌아가기">
+                        <S.RestartIcon src={backIcon} />
+                        처음으로
+                    </S.RestartBtn>
                     <S.ResultTitle>여행의 순간, 제작 완료!</S.ResultTitle>
                     <S.ResultSubTitle>실제 여행에서, 사진 속 아름다운 모습을 실현해보세요!</S.ResultSubTitle>
                     <S.VideoSection>
