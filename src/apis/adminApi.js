@@ -29,3 +29,6 @@ export const getTodayLinkCount = () =>
 
 export const getTodayClickCount = () =>
     axiosInstance.get("/api/analytics/today-click-count/");
+
+export const getTodayVisitorCount = () =>
+    axiosInstance.get("/api/analytics/visitor-count/today/");
