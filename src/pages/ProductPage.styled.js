@@ -438,16 +438,6 @@ export const QRSearch = styled.img`
     height: 20px;
 `;
 
-export const QRNotice = styled.p`
-    color: ${({ theme }) => theme.colors.lightBrown};
-    text-align: center;
-    font-family: ${({ theme }) => theme.fonts.body};
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-`;
-
 export const ResultInfo = styled.p`
     color: ${({ theme }) => theme.colors.lightBrown};
     text-align: center;
@@ -540,16 +530,4 @@ export const QRModalTitle = styled.p`
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-`;
-
-
-export const QRModalNotice = styled.p`
-    color: ${({ theme }) => theme.colors.lightBrown};
-    text-align: center;
-    font-family: ${({ theme }) => theme.fonts.body};
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    padding-top: 75px;
 `;
