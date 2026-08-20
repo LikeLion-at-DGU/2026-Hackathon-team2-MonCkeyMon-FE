@@ -185,9 +185,13 @@ function ProductPage() {
 
             <S.ResultOverlay $show={showResultModal}>
                 <S.ResultModal $show={showResultModal}>
-                    <S.RestartBtn type="button" onClick={handleRestart} aria-label="처음으로 돌아가기">
-                        <S.RestartIcon src={backIcon} />
-                        처음으로
+                    <S.RestartBtn
+                        type="button"
+                        onClick={handleRestart}
+                        disabled={linkChoice === null}
+                        aria-label="처음으로 돌아가기"
+                    >
+                        끝내기
                     </S.RestartBtn>
                     <S.ResultTitle>여행의 순간, 제작 완료!</S.ResultTitle>
                     <S.ResultSubTitle>실제 여행에서, 사진 속 아름다운 모습을 실현해보세요!</S.ResultSubTitle>
