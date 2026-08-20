@@ -281,6 +281,8 @@ export const ResultOverlay = styled.div`
 `;
 
 export const ResultModal = styled.div`
+    position: relative;
+
     width: 740px;
     height: 965px;
 
@@ -296,6 +298,39 @@ export const ResultModal = styled.div`
 
     transform: ${({ $show }) => ($show ? "scale(1)" : "scale(0.96)")};
     transition: transform 0.4s ease-out;
+`;
+
+export const RestartBtn = styled.button`
+    position: absolute;
+    top: 30px;
+    left: 26px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 8px 14px;
+    border-radius: 999px;
+
+    background: transparent;
+    color: ${({ theme }) => theme.colors.greySand};
+
+    font-family: ${({ theme }) => theme.fonts.body};
+    font-size: 20px;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: color 0.2s ease-out, background 0.2s ease-out;
+
+    &:hover {
+        background: ${({ theme }) => theme.colors.lightSand};
+        color: ${({ theme }) => theme.colors.lightBrown};
+    }
+`;
+
+export const RestartIcon = styled.img`
+    width: 11px;
+    height: 22px;
 `;
 
 export const ResultTitle = styled.h2`
