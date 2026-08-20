@@ -19,7 +19,7 @@ function IntroPage(){
 
             <S.BottomModal $show={showModal}>
                 <S.ModalContent>
-                    <S.StartButton onClick={() => navigate("/camera")}><S.VideoImg src={video} />영상 제작하기</S.StartButton>
+                    <S.StartButton onClick={() => navigate("/camera")}><S.VideoImg src={video} />사진 제작하기</S.StartButton>
                 </S.ModalContent>
             </S.BottomModal>
         </S.Wrapper>
