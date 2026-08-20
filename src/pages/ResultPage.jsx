@@ -11,6 +11,7 @@ import MapIcon from "../assets/images/Map.png"
 import Picture from "../assets/images/Picture.png"
 import Link from "../assets/images/Link.png"
 import Post from "../assets/videos/Post.mp4"
+import BagIcon from "../assets/images/Bag.png"
 
 function ResultPage() {
     const { sessionId: sessionIdParam } = useParams();
@@ -78,7 +79,7 @@ function ResultPage() {
             </S.IconSection>
             <S.IconSection>
                 <S.IconDiv>
-                    <S.Icon src={MapIcon} />
+                    <S.Icon src={BagIcon} />
                 </S.IconDiv>
                 <S.IconInfo>선택 제품</S.IconInfo>
                 <S.IconData>{share?.product_name}</S.IconData>

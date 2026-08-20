@@ -1,6 +1,6 @@
 import PageHeader from "../components/PageHeader/PageHeader";
 import * as S from "./IntroPage.styled";
-import video from "../assets/images/Video.png";
+import cameraIcon from "../assets/images/Camera.png";
 import { useNavigate } from "react-router-dom";
 import { useChatSequence } from "../hooks/useChatSequence";
 import Chat from "../components/Chat/Chat";
@@ -19,7 +19,10 @@ function IntroPage(){
 
             <S.BottomModal $show={showModal}>
                 <S.ModalContent>
-                    <S.StartButton onClick={() => navigate("/camera")}><S.VideoImg src={video} />사진 제작하기</S.StartButton>
+                    <S.StartButton type="button" onClick={() => navigate("/camera")}>
+                        <S.CamIcon src={cameraIcon} />
+                        사진 촬영하기
+                    </S.StartButton>
                 </S.ModalContent>
             </S.BottomModal>
         </S.Wrapper>
