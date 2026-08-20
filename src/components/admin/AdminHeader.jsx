@@ -6,7 +6,7 @@ const TABS = [
     { path: "/admin/daily", name: "1일 데이터" },
     { path: "/admin/total", name: "누적 데이터" },
     { path: "/admin/stock", name: "매장 재고" },
-    { path: "/admin/ai", name: "AI 수요 예측" },
+    { path: "/admin/ai", name: "수요 예측" },
     { path: "/admin/info", name: "정보" },
 ];
 
