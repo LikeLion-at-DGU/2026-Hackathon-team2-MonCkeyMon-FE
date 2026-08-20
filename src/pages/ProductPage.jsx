@@ -14,9 +14,9 @@ import ShareQR from "../components/ShareQR/ShareQR";
 import upArrow from "../assets/images/UpArrow.svg"
 import Search from "../assets/images/Search.png"
 import backIcon from "../assets/images/BackIcon.svg"
-const CHAT_ON_ENTER = 3;
+const CHAT_ON_ENTER = 3;     
 const CHAT_BEFORE_SELECT = 5;
-const CHAT_AFTER_SELECT = 7;
+const CHAT_AFTER_SELECT = 7; 
 const RESULT_MODAL_DELAY = 1000;
 
 function ProductPage() {
@@ -52,16 +52,6 @@ function ProductPage() {
         return () => clearTimeout(timer);
     }, [compositeImage, visibleMessages]);
 
-    useEffect(() => {
-        if (!showResultModal) return;
-
-        const timer = setTimeout(() => {
-            handleRestart();
-        }, 30000);
-
-        return () => clearTimeout(timer);
-    }, [showResultModal]);
-
     const { top3, filtered, filterGroups, loading } = useProductFilter();
 
     const handleConfirm = async () => {
@@ -79,7 +69,7 @@ function ProductPage() {
         setExpanded(false);
         setShowModal(false);
         setChatEnd(CHAT_AFTER_SELECT);
-        advanceTo(CHAT_BEFORE_SELECT + 1);
+        advanceTo(CHAT_BEFORE_SELECT + 1); 
 
         try {
             const res = await createComposite(sessionId);
