@@ -52,8 +52,8 @@ export const Detail = styled.div`
 export const Name = styled.p`
     color: ${({ theme }) => theme.colors.lightBrown};
     font-family: ${({ theme }) => theme.fonts.body};
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 21px;
+    font-weight: 600;
 `;
 
 export const Score = styled.strong`
@@ -89,8 +89,9 @@ export const CatName = styled.div`
     display: flex;
     color: ${({ theme }) => theme.colors.lightBrown};
     font-family: ${({ theme }) => theme.fonts.body};
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 25px;
 `;
 
 export const Title2 = styled.h2`

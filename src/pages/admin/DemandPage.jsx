@@ -55,7 +55,7 @@ function DemandPage() {
                         {top1 && (
                             <S.Detail>
                                 <S.Name>
-                                    {top1.product_name}/ {top1.color}/ {top1.size}
+                                    {top1.product_name}<br/> {top1.color}/ {top1.size}
                                 </S.Name>
                                 <S.Score>{top1.total_score}</S.Score>
                             </S.Detail>

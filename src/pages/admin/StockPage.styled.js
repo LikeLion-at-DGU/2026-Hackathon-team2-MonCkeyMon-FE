@@ -37,7 +37,6 @@ export const Tab = styled.div`
     align-items: center;
     gap: 20px;
     margin-bottom: 20px;
-    gap: 48px;
     padding: 0 20px;
 `;
 
