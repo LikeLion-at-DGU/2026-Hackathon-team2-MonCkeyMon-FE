@@ -101,11 +101,6 @@ function ProductPage() {
         navigate("/", { replace: true });
     };
 
-    const handleDownload = () => {
-        if (!sessionId) return;
-        navigate(`/share/${sessionId}`);
-    };
-
     const renderCard = (product) => (
         <ProductCard
             key={product.id}
@@ -200,8 +195,17 @@ function ProductPage() {
                         <S.ImagePreview src={compositeImage} />
                         <S.QRSection>
                             <S.QRTitle>QR 코드를 통해 사진과<br />구매링크를 받아보실 수 있습니다.</S.QRTitle>
-                            <ShareQR sessionId={sessionId} size={200} radius={10} />
-                            <S.QRButton onClick={() => setShowQRModal(true)}>
+                            {linkChoice === null ? (
+                                <S.QRPlaceholder>
+                                    체크박스를 선택하시면<br />활성화됩니다
+                                </S.QRPlaceholder>
+                            ) : (
+                                <ShareQR sessionId={sessionId} size={200} radius={10} />
+                            )}
+                            <S.QRButton
+                                $disabled={linkChoice === null}
+                                onClick={() => setShowQRModal(true)}
+                            >
                                 <S.QRSearch src={Search} />
                                 <S.QRExpand>크게 보기</S.QRExpand>
                             </S.QRButton>
@@ -227,7 +231,6 @@ function ProductPage() {
                             />
                         </S.InfoCheckLabel>
                     </S.InfoCheckSection>
-                    <S.DownloadBtn type="button" onClick={handleDownload}>이미지 받기</S.DownloadBtn>
                 </S.ResultModal>
             </S.ResultOverlay>
 

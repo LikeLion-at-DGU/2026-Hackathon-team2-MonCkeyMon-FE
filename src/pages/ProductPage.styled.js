@@ -380,6 +380,27 @@ export const QRSection = styled.div`
     align-items: center;
 `;
 
+export const QRPlaceholder = styled.div`
+    display: flex;
+    width: 200px;
+    height: 200px;
+    box-sizing: border-box;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+    border-radius: 10px;
+    background: ${({ theme }) => theme.colors.active};
+
+    color: ${({ theme }) => theme.colors.cream};
+    text-align: center;
+    font-family: ${({ theme }) => theme.fonts.body};
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5;
+`;
+
 export const QRTitle = styled.p`
     color: ${({ theme }) => theme.colors.lightBrown};
     text-align: center;
@@ -397,6 +418,9 @@ export const QRButton = styled.div`
     justify-content: center;
     gap: 5px;
     cursor: pointer;
+
+    opacity: ${({ $disabled }) => ($disabled ? 0.4 : 1)};
+    pointer-events: ${({ $disabled }) => ($disabled ? "none" : "auto")};
 `;
 
 export const QRExpand = styled.p`
@@ -469,27 +493,6 @@ export const InfoCheck = styled.input`
     }
 `;
 
-export const DownloadBtn = styled.button`
-    display: flex;
-    width: 678px;
-    height: 100px;
-    padding: 32px 0;
-    margin-top: 24px;
-    justify-content: center;
-    align-items: center;
-
-    border-radius: 10px;
-    border: 1px solid ${({ theme }) => theme.colors.greySand};
-
-    background: ${({ theme }) => theme.colors.camelBrown};
-    color: ${({ theme }) => theme.colors.cream};
-
-    font-family: ${({ theme }) => theme.fonts.body};
-    font-size: 30px;
-    font-weight: 500;
-
-    cursor: pointer;
-`;
 export const QROverlay = styled.div`
     position: absolute;
     inset: 0;
