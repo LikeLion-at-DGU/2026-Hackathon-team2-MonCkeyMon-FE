@@ -75,26 +75,25 @@ export const ModalContent = styled.div`
 
 export const StartButton = styled.button`
     display: flex;
-    width: 540px;
-    height: 120px;
-    padding: 30px 141px 30px 142px;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 450px;
+    height: 100px;
     flex-shrink: 0;
-    background-color: ${({ theme }) => theme.colors.camelBrown};
     border-radius: 20px;
-    color: #FFF;
-    text-align: center;
-    font-family: Pretendard;
+    background: ${({ theme }) => theme.colors.camelBrown};
+    color: ${({ theme }) => theme.colors.white};
+    font-family: ${({ theme }) => theme.fonts.body};
     font-size: 35px;
-    line-height: normal;
 
     &:active{
-        transform: scale(1.03);
+        transform: scale(0.94);
+        background: ${({ theme }) => theme.colors.active};
     }
 `;
 
-export const VideoImg = styled.img`
-    width: 60px;
-    height: 60px;
+export const CamIcon = styled.img`
+    width: 61px;
+    height: 61px;
 `;
