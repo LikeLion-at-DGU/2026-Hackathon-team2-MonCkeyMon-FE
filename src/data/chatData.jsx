@@ -41,7 +41,6 @@ export const chatMessages = [
         isMine: true,
         withProduct: true,
         startsNewScreen: true,
-        withLoading: true,
         content: (
             <>
                 제품을 선택했습니다.
@@ -49,6 +48,7 @@ export const chatMessages = [
         ),
     },
     {
+        withLoading: true,
         content: (
             <>
                 촬영하신 사진과 선택된 제품으로<br />AI가 아름다운 여행의 순간을 제작하고 있습니다.<br />잠시만 기다려 주십시오...

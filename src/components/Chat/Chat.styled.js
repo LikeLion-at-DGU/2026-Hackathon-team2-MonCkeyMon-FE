@@ -38,6 +38,18 @@ export const ChatMessage = styled.div`
     `}
 `;
 
+const bob = keyframes`
+    0% {
+        transform: translateY(-5px);
+    }
+    50% {
+        transform: translateY(5px);
+    }
+    100% {
+        transform: translateY(-5px);
+    }
+`;
+
 export const Loading = styled.div`
     display: flex;
     flex-direction: column;
@@ -46,6 +58,8 @@ export const Loading = styled.div`
     margin-top: auto;
 
     align-items: center;
+
+    animation: ${riseIn} 0.45s ease-out;
 `;
 
 export const LoadingIcon = styled.img`
@@ -54,6 +68,8 @@ export const LoadingIcon = styled.img`
 
     flex-shrink: 0;
     aspect-ratio: 38/48;
+
+    animation: ${bob} 1.8s ease-in-out infinite;
 `;
 
 export const LoadingText = styled.span`
