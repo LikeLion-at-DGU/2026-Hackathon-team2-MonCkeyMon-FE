@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useChatStore } from "../store/chatStore";
 import { chatMessages } from "../data/chatData";
 
-const MESSAGE_DELAY = 3000;
+const MESSAGE_DELAY = 2000;
 const MODAL_DELAY = 1000;
 
 export const useChatSequence = ({ clampMin, clampMax, end, modalAt = end }) => {
