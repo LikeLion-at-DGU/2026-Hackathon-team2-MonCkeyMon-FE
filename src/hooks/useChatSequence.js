@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useChatStore } from "../store/chatStore";
+import { chatMessages } from "../data/chatData";
 
-const MESSAGE_DELAY = 3000;
+const MESSAGE_DELAY = 2000;
 const MODAL_DELAY = 1000;
 
 export const useChatSequence = ({ clampMin, clampMax, end, modalAt = end }) => {
@@ -14,9 +15,10 @@ export const useChatSequence = ({ clampMin, clampMax, end, modalAt = end }) => {
 
     useEffect(() => {
         if (visibleMessages >= end) return;
+        const nextDelay = chatMessages[visibleMessages]?.delay ?? MESSAGE_DELAY;
         const timer = setTimeout(() => {
             advanceTo(visibleMessages + 1);
-        }, MESSAGE_DELAY);
+        }, nextDelay);
         return () => clearTimeout(timer);
     }, [visibleMessages, advanceTo, end]);
 

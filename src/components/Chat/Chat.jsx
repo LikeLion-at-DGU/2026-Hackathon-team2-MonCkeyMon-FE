@@ -7,7 +7,7 @@ import { useChatStore } from "../../store/chatStore";
 import { useExperienceStore } from "../../store/experienceStore";
 import ProductCard from "../ProductCard/ProductCard";
 
-function Chat() {
+function Chat({ instantCount = 0 }) {
     const { visibleMessages } = useChatStore();
     const selectedProduct = useExperienceStore((state) => state.product);
 
@@ -38,7 +38,11 @@ function Chat() {
     return (
         <S.ChatList>
             {groups.map((group) => (
-                <S.ChatMessage key={group.startIndex} $mine={group.isMine}>
+                <S.ChatMessage
+                    key={group.startIndex}
+                    $mine={group.isMine}
+                    $instant={group.startIndex + group.messages.length <= instantCount}
+                >
                     {!group.isMine && (
                         <S.Profile>
                             <S.ProfileImg src={profile} />

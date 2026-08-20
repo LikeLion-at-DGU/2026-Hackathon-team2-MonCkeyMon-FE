@@ -107,7 +107,7 @@ function ProductPage() {
         <S.Wrapper>
             <PageHeader />
             <S.Body>
-                <Chat />
+                <Chat instantCount={CHAT_ON_ENTER} />
             </S.Body>
 
             <S.BottomModal $show={showModal} $expanded={expanded} $selected={selectedId !== null}>
