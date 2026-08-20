@@ -238,7 +238,6 @@ function ProductPage() {
                 <S.QRModal $show={showQRModal} onClick={(e) => e.stopPropagation()} >
                     <S.QRModalTitle>QR 코드를 통해 사진과<br />구매링크를 받아보실 수 있습니다.</S.QRModalTitle>
                     <ShareQR sessionId={sessionId} size={550} radius={20} />
-                    <S.QRModalNotice>*링크는 24시간동안 유효합니다.</S.QRModalNotice>
                 </S.QRModal>
             </S.QROverlay>
         </S.Wrapper>

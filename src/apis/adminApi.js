@@ -6,8 +6,14 @@ export const getProductSession = () =>
 export const getCategoryTop5 = () =>
     axiosInstance.get("/api/analytics/category-session/top5/");
 
+export const getTodayCategoryTop5 = () =>
+    axiosInstance.get("/api/analytics/category-session/top5/", { params: { period: "today" } });
+
 export const getChooseCountTop5 = () =>
     axiosInstance.get("/api/analytics/choose-count/top5/");
+
+export const getTodayChooseCountTop5 = () =>
+    axiosInstance.get("/api/analytics/choose-count/top5/", { params: { period: "today" } });
 
 export const getVisitorCount = () =>
     axiosInstance.get("/api/analytics/visitor-count/");
